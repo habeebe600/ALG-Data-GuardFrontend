@@ -1,0 +1,231 @@
+.services-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  background: black;
+}
+
+.services-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  z-index: 10;
+}
+
+.services-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.services-subtitle {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-track-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.services-track {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 4rem;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.service-card {
+  min-width: 420px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.service-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #f97316;
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
+}
+
+/* Icon wrapper - Simple white circle, no hover effect */
+.service-icon-wrapper {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+  padding: 1.5rem;
+  /* REMOVED: All hover transitions */
+}
+
+/* Icon styling - Always visible, no filter, no hover */
+.service-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* REMOVED: All filters and transitions */
+}
+
+.service-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.service-description {
+  font-size: 1rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  min-height: 80px;
+  max-width: 360px;
+}
+
+.service-btn {
+  background: transparent;
+  color: #f97316;
+  border: 2px solid #f97316;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: auto;
+}
+
+.service-btn:hover {
+  background: #f97316;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+/* Scroll Progress Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #f97316 0%, #fb923c 100%);
+  border-radius: 2px;
+  transition: width 0.1s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .services-title {
+    font-size: 2.5rem;
+  }
+
+  .service-card {
+    min-width: 380px;
+  }
+
+  .services-track {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-wrapper {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .services-sticky-container {
+    position: relative;
+    height: auto;
+    padding: 3rem 1rem;
+  }
+
+  .services-title {
+    font-size: 2rem;
+  }
+
+  .services-subtitle {
+    font-size: 1rem;
+  }
+
+  .services-track-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .services-track {
+    flex-direction: row;
+    padding: 1rem;
+    transform: none !important;
+  }
+
+  .service-card {
+    min-width: 300px;
+  }
+
+  .service-icon-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-title {
+    font-size: 1.75rem;
+  }
+
+  .service-card {
+    min-width: 280px;
+    padding: 2rem 1.5rem;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+  }
+}

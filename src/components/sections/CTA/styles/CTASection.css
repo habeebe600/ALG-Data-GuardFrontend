@@ -1,0 +1,184 @@
+.cta-section {
+  background: #000000;
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(45deg, rgba(0, 150, 150, 0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 150, 150, 0.03) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 150, 150, 0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 150, 150, 0.03) 75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.cta-section__container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* White Card */
+.cta-section__card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 5rem 4rem;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative Gradient */
+.cta-section__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #f97316 0%, #ea580c 50%, #f97316 100%);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.cta-section__title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.cta-section__description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #4b5563;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Let's Meet Button */
+.cta-section__button {
+  display: inline-block;
+  background-color: #f97316;
+  color: #ffffff;
+  padding: 1rem 3rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section__button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.cta-section__button:hover::before {
+  left: 100%;
+}
+
+.cta-section__button:hover {
+  background-color: #ea580c;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+}
+
+.cta-section__button:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cta-section {
+    padding: 6rem 0;
+  }
+
+  .cta-section__card {
+    padding: 4rem 3rem;
+  }
+
+  .cta-section__title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 4rem 0;
+  }
+
+  .cta-section__card {
+    padding: 3rem 2rem;
+  }
+
+  .cta-section__title {
+    font-size: 2rem;
+  }
+
+  .cta-section__description {
+    font-size: 1rem;
+  }
+
+  .cta-section__button {
+    padding: 0.875rem 2.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-section__container {
+    padding: 0 1rem;
+  }
+
+  .cta-section__card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .cta-section__title {
+    font-size: 1.75rem;
+  }
+
+  .cta-section__description {
+    font-size: 0.938rem;
+  }
+}

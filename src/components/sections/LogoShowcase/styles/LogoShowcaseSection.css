@@ -1,0 +1,148 @@
+.logo-showcase {
+  background: #000000;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-showcase__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 600px;
+}
+
+/* Left Side - Logo */
+.logo-showcase__logo-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.logo-showcase__logo-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Right Side - Content */
+.logo-showcase__content-side {
+  color: #ffffff;
+  padding: 2rem;
+}
+
+.logo-showcase__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.logo-showcase__description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+/* CTA Button */
+.logo-showcase__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #f97316;
+  border: none;
+  border-bottom: 2px solid #f97316;
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.logo-showcase__cta:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+  gap: 1rem;
+}
+
+.logo-showcase__cta-arrow {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.logo-showcase__cta:hover .logo-showcase__cta-arrow {
+  transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .logo-showcase__container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    min-height: auto;
+  }
+
+  .logo-showcase__title {
+    font-size: 2.5rem;
+  }
+
+  .logo-showcase__logo-image {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-showcase {
+    padding: 4rem 0;
+  }
+
+  .logo-showcase__container {
+    padding: 0 1.5rem;
+  }
+
+  .logo-showcase__title {
+    font-size: 2rem;
+  }
+
+  .logo-showcase__description {
+    font-size: 1rem;
+  }
+
+  .logo-showcase__logo-image {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-showcase__title {
+    font-size: 1.75rem;
+  }
+
+  .logo-showcase__logo-image {
+    max-width: 250px;
+  }
+}
