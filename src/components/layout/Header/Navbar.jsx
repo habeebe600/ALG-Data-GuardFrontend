@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import DropdownMenu from './DropdownMenu';
 import MobileMenu from './MobileMenu';
 import './styles/Navbar.css';
-import logoImage from '../../../assets/images/Logo/Logo.png';
+import logoImageWhite from '../../../assets/images/Logo/White-Logo.png';
+import logoImageGreen from '../../../assets/images/Logo/Green-Logo.png';
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,7 +20,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+  const navigate = useNavigate();
   const solutionsItems = [
     { label: 'Solutions By Need', href: '/solutions/by-need' },
     { label: 'Solutions By Industry', href: '/solutions/by-industry' },
@@ -53,7 +56,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="navbar__logo">
           <img 
-            src={logoImage} 
+            src={isScrolled ? logoImageGreen : logoImageWhite}
             className="navbar__logo-img"
           />
           <p className="logo-name"> ALG Data Guard</p>
@@ -95,10 +98,11 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="navbar__cta-btn"
+            onClick={() => navigate('/contact')}
           >
             LET'S MEET
           </motion.button>
-
+        
           {/* Mobile Menu Toggle */}
           <button 
             className="navbar__mobile-toggle"

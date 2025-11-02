@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/Footer.css';
-import logoImage from '../../../assets/images/Logo/Logo.png';
+import logoImage from '../../../assets/images/Logo/Green-Logo.png';
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -106,7 +106,7 @@ const Footer = () => {
           {/* Social Media Icons */}
           <div className="footer__social">
             <a 
-              href="https://www.linkedin.com/in/alg-dataguard-48838a37a/" 
+              href="https://linkedin.com/in/alg-dataguard-48838a37a" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="footer__social-link"
@@ -117,7 +117,7 @@ const Footer = () => {
               </svg>
             </a>
             <a 
-              href="https://twitter.com/algdataguard" 
+              href="https://x.com/ALGDataguard" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="footer__social-link"
