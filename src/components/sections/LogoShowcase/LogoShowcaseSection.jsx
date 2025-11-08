@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles/LogoShowcaseSection.css';
 import fullLogo from '../../../assets/images/Logo/full-logo.png';
 
 const LogoShowcaseSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="logo-showcase">
       <div className="logo-showcase__container">
@@ -23,7 +25,7 @@ const LogoShowcaseSection = () => {
           <p className="logo-showcase__description">
             Our expertise runs the gamut of mission-critical services. We keep a watchful eye on the broad and complex landscape of your unique business needs, always deploying the right tactics at the right times for the most effective outcome.
           </p>
-          <button className="logo-showcase__cta">
+          <button className="logo-showcase__cta" onClick={() => navigate('/services')}>
             OUR SERVICES
             <span className="logo-showcase__cta-arrow">▶</span>
           </button>

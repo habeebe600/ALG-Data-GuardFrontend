@@ -63,7 +63,7 @@
 
 /* Title */
 .hero__title {
-  font-size: 4.5rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.1;
   color: #ffffff !important;
@@ -100,6 +100,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 4px;
+  margin-top: 20px;
 }
 
 .hero__cta-btn:hover {

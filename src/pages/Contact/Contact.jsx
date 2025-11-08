@@ -87,7 +87,7 @@ return (
           Let us know what you need or how we can help.
           Just send us a message and we’ll connect you with the right person, right away.
         </p>
-        <div style={{ margin: '2.5rem 0 1rem 0' }}>
+        <div>
           <strong>CORPORATE HEADQUARTERS</strong><br />
           16, 7171 Torbram Road,<br />
           Mississauga, ON L4T 3W4<br />
