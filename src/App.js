@@ -10,6 +10,12 @@ import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';
 import Footer from './components/layout/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import DesignAndDeployment from './pages/Services/Design-and-Deployment'
+import BusinessStrategy from './pages/Services/Business-Strategy'
+import NetworkAudit from './pages/Services/Network-Audit'
+import HelpFindingIdealColocation from './pages/Services/Help-finding-Ideal-Colocation'
+import SupportTraining from './pages/Services/Support-Training'
+import TechnicalRecruiters from './pages/Services/Technical-Recruiters'
 
 function App() {
   
@@ -24,6 +30,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/Design-and-Deployment" element={<DesignAndDeployment />} />
+            <Route path="/services/Business-Strategy" element={<BusinessStrategy />} />
+            <Route path="/services/Network-Audit" element={<NetworkAudit />} />
+            <Route path="/services/Help-finding-Ideal-Colocation" element={<HelpFindingIdealColocation />} />
+            <Route path="/services/Support-Training" element={<SupportTraining />} />
+            <Route path="/services/Technical-Recruiters" element={<TechnicalRecruiters />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about/*" element={<About />} />
             {/* Add more routes as needed */}

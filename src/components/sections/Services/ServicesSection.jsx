@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './styles/ServicesSection.css';
 
@@ -13,37 +14,43 @@ import colocationIcon from '../../../assets/images/services/Help-finding-ideal-c
 const ServicesSection = () => {
   const containerRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
-
+  const navigate = useNavigate();
   const services = [
     {
       title: "Design and Deployment",
       description: "Complete network infrastructure design and seamless deployment services tailored to your business needs",
-      icon: designIcon
+      icon: designIcon,
+      link: "/services/design-and-deployment",
     },
     {
       title: "Network Audit",
       description: "Comprehensive security and performance audits for your network infrastructure to ensure optimal operation",
-      icon: auditIcon
+      icon: auditIcon,
+      link: "/services/Network-Audit",
     },
     {
       title: "Business Strategy",
       description: "Strategic IT consulting to align technology with your business goals and drive digital transformation",
-      icon: strategyIcon
+      icon: strategyIcon,
+      link: "/services/Business-Strategy",
     },
     {
       title: "Technical Recruiters",
       description: "Find and hire top IT talent for your specialized technology needs with our expert recruitment services",
-      icon: recruiterIcon
+      icon: recruiterIcon,
+      link: "/services/Technical-Recruiters",
     },
     {
       title: "Support & Training",
       description: "Ongoing technical support and comprehensive training programs to empower your team and ensure success",
-      icon: supportIcon
+      icon: supportIcon,
+      link: "/services/Support-Training",
     },
     {
       title: "Help finding Ideal Colocation",
       description: "Expert guidance in selecting the perfect colocation facility for your infrastructure and business requirements",
-      icon: colocationIcon
+      icon: colocationIcon,
+      link: "/services/Help-finding-Ideal-Colocation",
     }
   ];
 
@@ -54,7 +61,7 @@ const ServicesSection = () => {
       const container = containerRef.current;
       const rect = container.getBoundingClientRect();
       const scrollHeight = container.scrollHeight - window.innerHeight;
-      
+
       // Check if section is in view
       if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
         // Section is "stuck" - calculate horizontal scroll progress
@@ -65,7 +72,7 @@ const ServicesSection = () => {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Initial calculation
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -80,9 +87,9 @@ const ServicesSection = () => {
           <h2 className="services-title">Our Services</h2>
           <p className="services-subtitle">Comprehensive IT solutions for your business</p>
         </div>
-        
+
         <div className="services-track-wrapper">
-          <div 
+          <div
             className="services-track"
             style={{ transform: `translateX(${translateX}px)` }}
           >
@@ -101,7 +108,13 @@ const ServicesSection = () => {
                 </div>
                 <h3 className="service-title">{service.title}</h3>
                 <p className="service-description">{service.description}</p>
-                <button className="service-btn">Learn More</button>
+
+                <button
+                  className="service-btn"
+                  onClick={() => navigate(service.link)}
+                >
+                  Learn More
+                </button>
               </motion.div>
             ))}
           </div>
@@ -109,7 +122,7 @@ const ServicesSection = () => {
 
         {/* Scroll Progress Indicator */}
         <div className="scroll-indicator">
-          <div 
+          <div
             className="scroll-progress-bar"
             style={{ width: `${scrollProgress * 100}%` }}
           />
