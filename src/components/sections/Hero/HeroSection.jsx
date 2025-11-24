@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './styles/HeroSection.css';
+import heroImage from '../../../assets/images/hero-section/Design-and-Deployment-home.png';
+import recruiterImg from '../../../assets/images/hero-section/Technical-recruiter-home.png';
+import colocationImg from '../../../assets/images/hero-section/Help-finding-ideal-colocation-home.png';
+import auditImg from '../../../assets/images/hero-section/Network-Audit-home.png';
+import supportImg from '../../../assets/images/hero-section/Technical-recruiter-home.png';
+import strategyImg from '../../../assets/images/hero-section/Business-Strategy-home.png';
+
+
 
 const TYPING_TEXTS = ['Consulting Partner', 'Cloud Expert', 'Security Specialist'];
 
@@ -91,6 +99,16 @@ const HeroSection = () => {
             GET STARTED
           </motion.button>
         </motion.div>
+        
+    <div className="hero-image-jumble">
+      <img src={heroImage} alt="Hero Visual" className="jumble-img ji-1"/>
+  <img src={recruiterImg} alt="Recruiter" className="jumble-img ji-2" />
+  <img src={colocationImg} alt="Colocation" className="jumble-img ji-3" />
+  <img src={auditImg} alt="Audit" className="jumble-img ji-4" />
+  <img src={supportImg} alt="Support" className="jumble-img ji-5" />
+  <img src={strategyImg} alt="Strategy" className="jumble-img ji-6" />
+</div>
+
       </div>
 
       {/* Scroll Indicator */}

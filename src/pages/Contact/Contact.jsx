@@ -77,7 +77,6 @@ const handleSubmit = async (e) => {
 return (
   <>
     <div className="contact-top-black-strip">
-      {/* Optionally include your logo and text here, or leave empty for pure black */}
     </div>
 
     <div className="contact-page-container">
@@ -94,7 +93,7 @@ return (
         </div>
         <div style={{ marginBottom: '1.2rem' }}>
           <strong>PHONE</strong><br />
-          <a className="contact-link" href="tel:+14452849083">📞 +14452849083</a>
+          <a className="contact-link" href="tel:+1-437-991-8735">📞 +1-437-991-8735</a>
         </div>
         <div>
           <strong>CONNECT</strong>

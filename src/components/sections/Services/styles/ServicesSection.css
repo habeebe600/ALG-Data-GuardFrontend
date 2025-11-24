@@ -73,7 +73,7 @@
   box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
 }
 
-/* Icon wrapper - Simple white circle, no hover effect */
+/* Icon wrapper */
 .service-icon-wrapper {
   width: 100px;
   height: 100px;
@@ -84,15 +84,13 @@
   background: white;
   border-radius: 50%;
   padding: 1.5rem;
-  /* REMOVED: All hover transitions */
 }
 
-/* Icon styling - Always visible, no filter, no hover */
+/* Icon styling */
 .service-icon {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* REMOVED: All filters and transitions */
 }
 
 .service-title {

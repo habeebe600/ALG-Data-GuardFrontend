@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/Service-pages.css';
-import heroBg from '../../assets/images/services/Business-Strategy-page.png'; // update path as per your src
+import heroBg from '../../assets/images/services/Business-Strategy-page.png';
 
 const BusinessStrategy = () => {
     const navigate = useNavigate();

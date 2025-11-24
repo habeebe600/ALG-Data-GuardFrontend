@@ -33,9 +33,9 @@
 }
 
 .navbar__logo-img {
-   height: 69px !important;     /* Increase to any size you like, e.g., 60px or 80px */
-  width: auto;      /* Keep aspect ratio */
-  max-width: 150px; /* Optional: limit maximum width */
+   height: 69px !important;
+  width: auto; 
+  max-width: 150px; 
   transition: all 0.3s ease;
   opacity: 1;
   display: block;
@@ -54,13 +54,6 @@
 .navbar--scrolled .logo-name {
   color: #1e293b;
 }
-
-.navbar__logo:hover .logo-name {
-  letter-spacing: 0.05em;
-}
-
-/* If you need different logo colors for scrolled/non-scrolled state, use two different images */
-/* For now, logo will show in its original colors */
 
 /* Desktop Menu */
 .navbar__menu {

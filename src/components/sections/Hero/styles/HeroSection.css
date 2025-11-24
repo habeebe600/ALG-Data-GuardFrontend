@@ -8,7 +8,6 @@
   overflow: hidden;
   margin: 0;
   padding: 0 4rem;
-  /* Remove any top margin/padding from here */
   width: 100%;
 }
 
@@ -49,12 +48,15 @@
 
 /* Content Container */
 .hero__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
   z-index: 10;
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding-top: 0;  /* Content stays where it is */
+  padding-top: 0; 
 }
 
 .hero__text {
@@ -112,6 +114,52 @@
 .hero__play-icon {
   width: 20px;
   height: 20px;
+}
+
+.hero-image-jumble {
+  position: relative;
+  width: 380px;
+  height: 380px;
+ margin-right: 4rem;
+}
+
+.jumble-img {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  opacity: 0.85;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.11);
+  transition: transform 0.3s, filter 0.4s;
+  filter: blur(3px);
+}
+
+.jumble-img:hover {
+  filter: blur(0);
+  opacity: 1;
+  z-index: 2;
+  transform: scale(1.2) rotate(-7deg);
+}
+
+/* Each image gets a different position/rotation for the jumbled effect */
+.ji-1 { top: 5px; left: 15px; transform: rotate(-23deg); }
+.ji-2 { top: 95px; left: 120px; transform: rotate(30deg); }
+.ji-3 { top: 185px; left: 40px; transform: rotate(-18deg); }
+.ji-4 { top: 260px; left: 180px; transform: rotate(16deg); }
+.ji-5 { top: 85px; left: 340px; transform: rotate(-27deg); }
+.ji-6 { top: 370px; left: 380px; transform: rotate(25deg); }
+
+@media (max-width: 768px) {
+  .hero-image-jumble {
+    width: 180px;
+    height: 180px;
+    margin-left: 0.5rem;
+  }
+  .jumble-img {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 /* Scroll Indicator */

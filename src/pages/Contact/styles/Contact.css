@@ -17,15 +17,14 @@
     #334155 50%,
     #1e293b 75%,
     #0f172a 100%
-  ); /* match your left panel */
+  ); /* match left panel */
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding-left: 60px;
-  /* Optional: add a subtle shadow for separation */
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   z-index: 1;
-  /* Optional for sticky effect: */
+  /* sticky effect: */
   /* position: sticky; top: 0; */
 }
 
@@ -247,8 +246,6 @@
 .contact-error {
   color: #e74247;
 }
-
-/* Add these to your existing Contact.css */
 
 .field-error {
   display: block;

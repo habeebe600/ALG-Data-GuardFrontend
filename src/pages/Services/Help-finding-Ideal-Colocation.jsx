@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/Service-pages.css';
-import heroBg from '../../assets/images/services/Help-finding-ideal-colocation-page.jpg'; // update path as per your src
+import heroBg from '../../assets/images/services/Help-finding-ideal-colocation-page.jpg';
 
 const HelpFindingIdealColocation = () => {
     const navigate = useNavigate();

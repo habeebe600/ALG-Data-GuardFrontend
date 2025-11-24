@@ -54,8 +54,8 @@ const Footer = () => {
               <a href="mailto:sales@algdataguard.com" className="footer__contact-link">
                 📧 sales@algdataguard.com
               </a>
-              <a href="tel:+14452849083" className="footer__contact-link">
-                📞 +14452849083
+              <a href="tel:+1-437-991-8735" className="footer__contact-link">
+                📞 +1-437-991-8735
               </a>
             </div>
           </div>

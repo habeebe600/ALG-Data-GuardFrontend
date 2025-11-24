@@ -65,7 +65,9 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="navbar__menu">
           <DropdownMenu title="Solutions" items={solutionsItems} />
-          <DropdownMenu title="Services" items={servicesItems} />
+          <Link to="/services" className="navbar__link">
+            Services
+          </Link>
           <DropdownMenu title="Resources" items={resourcesItems} />
           <Link to="/partners" className="navbar__link">
             Partners

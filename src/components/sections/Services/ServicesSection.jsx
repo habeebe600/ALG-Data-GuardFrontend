@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './styles/ServicesSection.css';
 
-// Import your service icons
+// Import service icons
 import designIcon from '../../../assets/images/services/Design-and-Deployment.jpg';
 import auditIcon from '../../../assets/images/services/Network-Audit.jpg';
 import strategyIcon from '../../../assets/images/services/Business-Strategy.jpg';

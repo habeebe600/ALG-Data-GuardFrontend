@@ -1,4 +1,3 @@
-// src/services/contactAPI.js
 import api from './api';
 
 // Submit contact form
@@ -11,7 +10,7 @@ export const submitContactForm = async (contactData) => {
   }
 };
 
-// Optional: Get all contacts (if you need this later)
+// Optional: Get all contacts (if need this later)
 export const getAllContacts = async () => {
   try {
     const response = await api.get('/api/contacts');

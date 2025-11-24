@@ -5,7 +5,7 @@ import './styles/Services.css';
 import './styles/Service-pages.css';
 
 
-// Import your service icons
+// Import service icons
 import designIcon from '../../assets/images/services/Design-and-Deployment.jpg';
 import auditIcon from '../../assets/images/services/Network-Audit.jpg';
 import strategyIcon from '../../assets/images/services/Business-Strategy.jpg';

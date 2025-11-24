@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/Service-pages.css';
-import heroBg from '../../assets/images/services/Technical-recruiter-page.jpg'; // update path as per your src
+import heroBg from '../../assets/images/services/Technical-recruiter-page.jpg';
 
 const TechnicalRecruiter = () => {
     const navigate = useNavigate();

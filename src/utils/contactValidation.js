@@ -1,5 +1,3 @@
-// frontend/src/utils/contactValidation.js
-
 // Email validation regex
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
