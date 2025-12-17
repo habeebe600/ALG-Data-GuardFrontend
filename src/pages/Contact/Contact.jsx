@@ -88,12 +88,12 @@ return (
         </p>
         <div>
           <strong>CORPORATE HEADQUARTERS</strong><br />
-          16, 7171 Torbram Road,<br />
-          Mississauga, ON L4T 3W4<br />
+          10225 Yonge St, Unit R226<br />
+          Richmond Hill, ON L4C 3B2<br />
         </div>
         <div style={{ marginBottom: '1.2rem' }}>
           <strong>PHONE</strong><br />
-          <a className="contact-link" href="tel:+1-437-991-8735">📞 +1-437-991-8735</a>
+          <a className="contact-link" href="tel:+1-742-688-4818">📞 +1-742-688-4818</a>
         </div>
         <div>
           <strong>CONNECT</strong>

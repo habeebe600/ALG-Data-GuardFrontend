@@ -1,15 +1,8 @@
 import axios from 'axios';
 
-// Automatically detect environment
-const isDevelopment = process.env.NODE_ENV === 'development';
-
 // Use environment variable first, then auto-detect based on environment
-const API_BASE_URL = process.env.REACT_APP_API_URL || 
-  (isDevelopment 
-    ? 'http://localhost:5000' 
-    : 'https://alg-data-guard-backend.vercel.app'
-  );
-
+const API_BASE_URL ='http://localhost:5000'
+  
 // Create axios instance with default config
 const api = axios.create({
   baseURL: API_BASE_URL,
