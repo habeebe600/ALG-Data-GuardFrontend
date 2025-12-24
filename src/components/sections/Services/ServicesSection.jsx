@@ -17,6 +17,42 @@ const ServicesSection = () => {
   const navigate = useNavigate();
   const services = [
     {
+      title: "Cloud IT Solutions",
+      description: "Get secure cloud backups, smooth migrations, and reliable ongoing support to keep your business connected. Maximize productivity and stay ahead with modern cloud computing.",
+      icon: designIcon,
+      link: "/services/cloud-IT-solutions",
+    },
+    {
+      title: "Cyber Security",
+      description: "Protect your organization with audits, compliance consulting, incident response, and layered security. Build strong defenses against evolving cyber threats.",
+      icon: designIcon,
+      link: "/services/Cybersecurity-Services",
+    },
+    /*{
+      title: "AI & Automation",
+      description: "Boost efficiency with secure AI and automation tools that reduce manual work and improve decision-making. Stay competitive and streamline operations in the digital landscape.",
+      icon: designIcon,
+      link: "/services/cloud-IT-solutions",
+    },
+    {
+      title: "IT Support Services",
+      description: "We minimize downtime with 24/7 helpdesk support and proactive device management. Rely on us for efficient, dependable IT assistance.",
+      icon: designIcon,
+      link: "/services/design-and-deployment",
+    },
+    {
+      title: "Network Solutions",
+      description: "Enjoy 24/7 network monitoring and routine assessments to identify and fix issues early. Keep your devices secure and running seamlessly.",
+      icon: auditIcon,
+      link: "/services/Network-Audit",
+    },
+    {
+      title: "Strategic IT Consulting",
+      description: "Plan, implement, and manage IT projects with expert guidance and smart procurement. Simplify your environment and support long-term success.",
+      icon: recruiterIcon,
+      link: "/services/Technical-Recruiters",
+    },*/
+    {
       title: "Design and Deployment",
       description: "Complete network infrastructure design and seamless deployment services tailored to your business needs",
       icon: designIcon,

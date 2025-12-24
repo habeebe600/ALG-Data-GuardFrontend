@@ -60,7 +60,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2 - Quick Links */}
+          {/* Column 2 - Quick Links 
           <div className="footer__column">
             <h3 className="footer__column-title">QUICKLINKS</h3>
             <nav className="footer__nav">
@@ -72,9 +72,9 @@ const Footer = () => {
               <Link to="/events" className="footer__link">Events</Link>
               <Link to="/login" className="footer__link">Login</Link>
             </nav>
-          </div>
+          </div>*/}
 
-          {/* Column 3 - About */}
+          {/* Column 3 - About
           <div className="footer__column">
             <h3 className="footer__column-title">ABOUT</h3>
             <nav className="footer__nav">
@@ -86,7 +86,7 @@ const Footer = () => {
               <Link to="/about/careers" className="footer__link">Careers</Link>
               <Link to="/about/press-kit" className="footer__link">Press Kit</Link>
             </nav>
-          </div>
+          </div>*/} 
         </div>
       </div>
 
@@ -97,10 +97,10 @@ const Footer = () => {
             <p className="footer__copyright">
               © ALG Data Guard 2025. All Rights Reserved
             </p>
-            <div className="footer__legal-links">
+            {/*<div className="footer__legal-links">
               <Link to="/terms" className="footer__legal-link">Terms & Conditions</Link>
               <Link to="/privacy" className="footer__legal-link">Privacy Policy</Link>
-            </div>
+            </div>*/}
           </div>
 
           {/* Social Media Icons */}

@@ -14,6 +14,13 @@ import supportIcon from '../../assets/images/services/Support-Training.jpg';
 import colocationIcon from '../../assets/images/services/Help-finding-ideal-colocation.jpg';
 
 const serviceList = [
+  /*{
+    title: "Cloud IT Solutions",
+    description: "Complete network infrastructure design and seamless deployment services tailored to your business needs",
+    icon: designIcon,
+    link: "/services/cloud-IT-solutions",
+    linkLabel: "Explore Cloud IT Solutions"
+  },*/
   {
     title: "Design and Deployment",
     description: "Complete network infrastructure design and seamless deployment services tailored to your business needs",

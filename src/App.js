@@ -16,6 +16,8 @@ import NetworkAudit from './pages/Services/Network-Audit'
 import HelpFindingIdealColocation from './pages/Services/Help-finding-Ideal-Colocation'
 import SupportTraining from './pages/Services/Support-Training'
 import TechnicalRecruiters from './pages/Services/Technical-Recruiters'
+import CloudSolutionsPage from './pages/Services/CloudSolutionsPage';
+import CybersecurityServices from './pages/Services/CybersecurityServices'
 
 function App() {
   
@@ -36,6 +38,8 @@ function App() {
             <Route path="/services/Help-finding-Ideal-Colocation" element={<HelpFindingIdealColocation />} />
             <Route path="/services/Support-Training" element={<SupportTraining />} />
             <Route path="/services/Technical-Recruiters" element={<TechnicalRecruiters />} />
+            <Route path="/services/Cloud-IT-Solutions" element={<CloudSolutionsPage />} />
+            <Route path="/services/Cybersecurity-Services" element={<CybersecurityServices />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about/*" element={<About />} />
             {/* Add more routes as needed */}

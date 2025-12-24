@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './styles/MobileMenu.css';
 
@@ -11,6 +12,7 @@ const MobileMenu = ({
   aboutItems 
 }) => {
   const [expandedMenu, setExpandedMenu] = useState(null);
+  const navigate = useNavigate();
 
   const toggleMenu = (menu) => {
     setExpandedMenu(expandedMenu === menu ? null : menu);
@@ -42,7 +44,7 @@ const MobileMenu = ({
         className="mobile-menu"
       >
         <div className="mobile-menu__content">
-          {/* Solutions */}
+          {/* Solutions 
           <div className="mobile-menu__section">
             <button 
               className="mobile-menu__section-title"
@@ -76,7 +78,7 @@ const MobileMenu = ({
             )}
           </div>
 
-          {/* Services */}
+          {/* Services 
           <div className="mobile-menu__section">
             <button 
               className="mobile-menu__section-title"
@@ -110,7 +112,7 @@ const MobileMenu = ({
             )}
           </div>
 
-          {/* Resources */}
+          {/* Resources 
           <div className="mobile-menu__section">
             <button 
               className="mobile-menu__section-title"
@@ -144,7 +146,7 @@ const MobileMenu = ({
             )}
           </div>
 
-          {/* Partners */}
+          {/* Partners 
           <Link 
             to="/partners" 
             className="mobile-menu__section-title"
@@ -153,7 +155,7 @@ const MobileMenu = ({
             Partners
           </Link>
 
-          {/* About */}
+          {/* About 
           <div className="mobile-menu__section">
             <button 
               className="mobile-menu__section-title"
@@ -186,11 +188,15 @@ const MobileMenu = ({
               </div>
             )}
           </div>
-
           {/* CTA Button */}
-          <button className="mobile-menu__cta-btn">
-            LET'S MEET
-          </button>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="mobile-menu__cta-btn"
+                      onClick={() => navigate('/contact')}
+                    >
+                      LET'S MEET
+                    </motion.button>
         </div>
       </motion.div>
     </>

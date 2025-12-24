@@ -21,7 +21,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const navigate = useNavigate();
-  const solutionsItems = [
+  /*const solutionsItems = [
     { label: 'Solutions By Need', href: '/solutions/by-need' },
     { label: 'Solutions By Industry', href: '/solutions/by-industry' },
     { label: 'Solutions By Function', href: '/solutions/by-function' },
@@ -48,7 +48,7 @@ const Navbar = () => {
     { label: 'Leadership', href: '/about/leadership' },
     { label: 'Careers', href: '/about/careers' },
     { label: 'Press Kit', href: '/about/press-kit' },
-  ];
+  ];*/
 
   return (
     <header className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
@@ -64,20 +64,20 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="navbar__menu">
-          <DropdownMenu title="Solutions" items={solutionsItems} />
-          <Link to="/services" className="navbar__link">
+          {/*<Link to="/services" className="navbar__link">
             Services
           </Link>
-          <DropdownMenu title="Resources" items={resourcesItems} />
+          <DropdownMenu title="Solutions" items={solutionsItems} />
+          {/*<DropdownMenu title="Resources" items={resourcesItems} />
           <Link to="/partners" className="navbar__link">
             Partners
           </Link>
-          <DropdownMenu title="About" items={aboutItems} />
+          {/*<DropdownMenu title="About" items={aboutItems} />*/}
         </div>
 
         {/* Right Side Actions */}
         <div className="navbar__actions">
-          {/* Search Icon */}
+          {/* Search Icon 
           <button className="navbar__search-btn" aria-label="Search">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -93,7 +93,7 @@ const Navbar = () => {
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
               />
             </svg>
-          </button>
+          </button>*/}
 
           {/* CTA Button */}
           <motion.button
@@ -143,10 +143,10 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <MobileMenu 
             onClose={() => setIsMobileMenuOpen(false)}
-            solutionsItems={solutionsItems}
+            /*solutionsItems={solutionsItems}
             servicesItems={servicesItems}
             resourcesItems={resourcesItems}
-            aboutItems={aboutItems}
+            aboutItems={aboutItems}*/
           />
         )}
       </AnimatePresence>

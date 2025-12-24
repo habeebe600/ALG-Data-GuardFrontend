@@ -253,12 +253,12 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #a3e635;
+  background: #f97316;
   color: #000000;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(163, 230, 53, 0.4);
+  box-shadow: 0 4px 12px rgba(230, 153, 53, 0.4);
   transition: all 0.3s ease;
   z-index: 999;
   display: flex;
@@ -279,9 +279,10 @@
 }
 
 .footer__scroll-top:hover {
-  background: #84cc16;
+  color: white;
+  background: #000000;
   transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(163, 230, 53, 0.6);
+  box-shadow: 0 6px 20px rgba(125, 125, 122, 0.6);
 }
 
 /* Responsive Design */

@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e82eb7be.css",
+    "main.js": "/static/js/main.7ff66ac4.js",
+    "static/media/Design-and-Deployment-page.png": "/static/media/Design-and-Deployment-page.ff891dc1ef5ac5a860c5.png",
+    "static/media/Business-Strategy-page.png": "/static/media/Business-Strategy-page.9bd384a2a52187df52d2.png",
+    "static/media/Green-Logo.png": "/static/media/Green-Logo.831bfeba1f1f98d9750b.png",
+    "static/media/White-Logo.png": "/static/media/White-Logo.0853a7d567b9fd8c0179.png",
+    "static/media/full-logo.png": "/static/media/full-logo.9bacc7d0cf59c3c01168.png",
+    "static/media/Support-Training-page.jpg": "/static/media/Support-Training-page.1f82034e392ef06b3e26.jpg",
+    "static/media/Network-Audit-page.jpg": "/static/media/Network-Audit-page.19ad302931cd64dd121b.jpg",
+    "static/media/Technical-recruiter-page.jpg": "/static/media/Technical-recruiter-page.e69220eae5d2b1cd79eb.jpg",
+    "static/media/Help-finding-ideal-colocation-page.jpg": "/static/media/Help-finding-ideal-colocation-page.17c38b7601ef04b1cd10.jpg",
+    "static/media/Network-Audit-home.png": "/static/media/Network-Audit-home.efba5da42861849394b1.png",
+    "static/media/Help-finding-ideal-colocation-home.png": "/static/media/Help-finding-ideal-colocation-home.b8597402513224473f48.png",
+    "static/media/Technical-recruiter-home.png": "/static/media/Technical-recruiter-home.819830aad781c8d061fa.png",
+    "static/media/Support-Training.jpg": "/static/media/Support-Training.e23d495f3061b2b957a3.jpg",
+    "static/media/Design-and-Deployment.jpg": "/static/media/Design-and-Deployment.e0b6c2b51da7e5b4e2c5.jpg",
+    "static/media/Network-Audit.jpg": "/static/media/Network-Audit.26597e9936b5f73217bb.jpg",
+    "index.html": "/index.html",
+    "main.e82eb7be.css.map": "/static/css/main.e82eb7be.css.map",
+    "main.7ff66ac4.js.map": "/static/js/main.7ff66ac4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e82eb7be.css",
+    "static/js/main.7ff66ac4.js"
+  ]
+}
