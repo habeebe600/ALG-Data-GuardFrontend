@@ -1,0 +1,255 @@
+:root{
+  --st-dark: #0b2b2e;
+  --st-muted: rgba(11, 43, 46, 0.78);
+  --st-orange: #f97316;
+  --st-shadow: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+.na-hero-section{
+  min-height: 90vh;
+  padding: 65px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(900px 400px at 10% 15%, rgba(249,115,22,0.20) 0%, rgba(249,115,22,0.0) 60%),
+    linear-gradient(180deg, #0b2b2e 0%, #ffffff 72%);
+}
+/* optional hero helper */
+.st-heroBg{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* typography */
+.st-h2{
+  margin: 0 0 10px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-size: clamp(34px, 3vw, 54px);
+}
+
+.st-h3{
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--st-dark);
+}
+
+.st-muted{
+  margin: 0;
+  color: var(--st-muted);
+  line-height: 1.85;
+  font-size: 18px;
+}
+
+/* SECTION 1: Tracks (tabs) */
+.st-tracks{
+  padding: 110px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #eef2f3 100%);
+}
+
+.st-tracks__container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.st-tracks__header{
+  max-width: 860px;
+  margin-bottom: 18px;
+}
+
+.st-tabs{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 12px;
+  box-shadow: var(--st-shadow);
+  width: fit-content;
+  margin: 18px 0 18px;
+}
+
+.st-tab{
+  border: 2px solid transparent;
+  background: transparent;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  color: var(--st-dark);
+}
+
+.st-tab.active{
+  border-color: var(--st-orange);
+  background: rgba(196, 128, 25, 0.10);
+}
+
+.st-trackCard{
+  margin-top: 12px;
+  background: #ffffff;
+  border-radius: 26px;
+  box-shadow: var(--st-shadow);
+  padding: 26px 26px;
+  max-width: 860px;
+}
+
+.st-list{
+  margin: 0 0 18px;
+  padding-left: 18px;
+  color: var(--st-muted);
+  line-height: 1.9;
+}
+
+.st-outlineBtn{
+  padding: 14px 20px;
+  border-radius: 999px;
+  border: 2px solid var(--st-orange);
+  background: transparent;
+  color: var(--st-orange);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.st-outlineBtn:hover{
+  background: rgba(196, 128, 25, 0.08);
+}
+
+/* SECTION 2: Support tiles */
+.st-support{
+  padding: 110px 0;
+  background: #ffffff;
+}
+
+.st-support__container{
+  width: min(1240px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.st-support__right{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.st-tile{
+  background: #f3f7f8;
+  border-radius: 22px;
+  box-shadow: var(--st-shadow);
+  padding: 18px 18px;
+}
+
+.st-tile__title{
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--st-dark);
+}
+
+.st-tile__text{
+  margin: 0;
+  color: var(--st-muted);
+  line-height: 1.75;
+}
+
+/* responsive */
+@media (max-width: 980px){
+  .st-support__container{
+    grid-template-columns: 1fr;
+  }
+  .st-support__right{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Section: Flow (timeline-like cards) ===== */
+.hc-flow{
+  padding: 110px 0;
+  background: #ffffff;
+}
+.hc-flow__container{
+  width: min(1240px, 92%);
+  margin: 0 auto;
+}
+.hc-flow__header{
+  max-width: 880px;
+  margin-bottom: 22px;
+}
+.hc-flow__grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 16px;
+}
+.hc-flowCard{
+  background: #f3f7f8;
+  border-radius: 22px;
+  box-shadow: var(--hc-card);
+  padding: 18px 18px;
+}
+
+/* ===== Section: Site visit checklist ===== */
+.hc-visit{
+  padding: 110px 0;
+  background: linear-gradient(180deg, #eef2f3 0%, #ffffff 100%);
+}
+.hc-visit__container{
+  width: min(1240px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 28px;
+  align-items: start;
+}
+.hc-visit__right{
+  display: grid;
+  gap: 14px;
+}
+.hc-checkGroup{
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: var(--hc-card);
+  padding: 18px 18px;
+}
+.hc-checkList{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--hc-muted);
+  line-height: 1.9;
+}
+
+/* ===== Section: Migration readiness ===== */
+.hc-move{
+  padding: 110px 0;
+  background: #ffffff;
+}
+.hc-move__container{
+  width: min(1240px, 92%);
+  margin: 0 auto;
+}
+.hc-move__grid{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
+  gap: 16px;
+}
+.hc-moveCard{
+  background: #f3f7f8;
+  border-radius: 22px;
+  box-shadow: var(--hc-card);
+  padding: 18px 18px;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .hc-flow__grid{ grid-template-columns: 1fr; }
+  .hc-visit__container{ grid-template-columns: 1fr; }
+  .hc-move__grid{ grid-template-columns: 1fr; }
+}

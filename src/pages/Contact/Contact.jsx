@@ -23,7 +23,7 @@ export default function Contact() {
   const [fieldErrors, setFieldErrors] = useState({});
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name } = e.target;
     setForm({ ...form, [e.target.name]: e.target.value });
   
 
@@ -250,12 +250,20 @@ return (
             <label htmlFor="area_of_interest">Area of Interest:</label>
             <select name="area_of_interest" value={form.area_of_interest} onChange={handleChange} placeholder="Area of Interest" required>
               <option value="">Select Area of Interest</option>
+              <option >Cloud IT Solutions</option>
+              <option >AI & Automation</option>
+              <option >Cyber Security</option>
+              <option >Strategic IT Consulting</option>
+              <option >Network Solutions</option>
+              <option >IT Support Services</option>
+              <option >Support & Training</option>
               <option >Design and Deployment</option>
+              <option >Configuration Services Deployment</option>
               <option >Network Audit</option>
+              <option >Data Center Colocation</option>
+              <option >Help finding Ideal Colocation</option>
               <option >Business Strategy</option>
               <option >Technical Recruiters</option>
-              <option >Support & Training</option>
-              <option >Help finding Ideal Colocation</option>
             </select>
           </div>
           <div>

@@ -21,20 +21,37 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   const navigate = useNavigate();
+  const servicesItems = {
+  managedServices: [
+    { label: "Cloud IT Solutions", href: "/services/cloud-IT-solutions" }, // your new page
+    { label: "AI & Automation", href: "/services/AI-Automation-Services" }, // your new page
+    { label: "Cyber Security", href: "/services/Cybersecurity-Services" }, // your new page
+    { label: "Strategic IT Consulting", href: "/services/Strategic-IT-Consulting" }, // your new page
+    { label: "Network Solutions", href: "/services/Managed-Network-Solutions" }, // your new page
+    { label: "IT Support Services", href: "/services/IT-Managed-Support-Services" }, // your new page
+    { label: "Support & Training", href: "/services/Support-Training" }, // your new page
+  ],
+
+  infrastructureServices: [
+    { label: "Design and Deployment", href: "/services/Design-and-Deployment" },
+    { label: "Configuration Services Deployment", href: "/services/Configuration-Services-Deployment" },
+    { label: "Network Audit", href: "/services/Network-Audit" },
+    { label: "Data Center Colocation", href: "/services/Data-Center-Colocation-services" },
+    { label: "Help finding Ideal Colocation", href: "/services/Help-finding-Ideal-Colocation" },
+  ],
+
+  otherServices: [
+    { label: "Business Strategy", href: "/services/Business-Strategy" },
+    { label: "Technical Recruiters", href: "/services/Technical-Recruiters" },
+  ],
+};
+
   /*const solutionsItems = [
     { label: 'Solutions By Need', href: '/solutions/by-need' },
     { label: 'Solutions By Industry', href: '/solutions/by-industry' },
     { label: 'Solutions By Function', href: '/solutions/by-function' },
   ];
 
-  const servicesItems = [
-    { label: 'Design and Deployment', href: '/services/Design-and-Deployment' },
-    { label: 'Network Audit', href: '/services/Network-Audit' },
-    { label: 'Business Strategy', href: '/services/Business-Strategy' },
-    { label: 'Technical Recruiters', href: '/services/Technical-Recruiters' },
-    { label: 'Support & Training', href: '/services/Support-Training' },
-    { label: 'Help finding Ideal Colocation', href: '/services/Help-finding-Ideal-Colocation' },
-  ];
 
   const resourcesItems = [
     { label: 'Knowledge Center', href: '/resources/knowledge-center' },
@@ -57,7 +74,7 @@ const Navbar = () => {
         <Link to="/" className="navbar__logo">
           <img 
             src={isScrolled ? logoImageGreen : logoImageWhite}
-            className="navbar__logo-img"
+            className="navbar__logo-img" alt='ALG Data Guard'
           />
           <p className="logo-name"> ALG Data Guard</p>
         </Link>
@@ -67,12 +84,15 @@ const Navbar = () => {
           {/*<Link to="/services" className="navbar__link">
             Services
           </Link>
-          <DropdownMenu title="Solutions" items={solutionsItems} />
-          {/*<DropdownMenu title="Resources" items={resourcesItems} />
-          <Link to="/partners" className="navbar__link">
+          <DropdownMenu title="Resources" items={resourcesItems} />
+          <DropdownMenu title="About" items={aboutItems} />*/}
+          <DropdownMenu title="Services" items={servicesItems} />
+          <Link to="/Partners" className="navbar__link">
             Partners
           </Link>
-          {/*<DropdownMenu title="About" items={aboutItems} />*/}
+          <Link to="/About" className="navbar__link">
+            About
+          </Link>
         </div>
 
         {/* Right Side Actions */}
