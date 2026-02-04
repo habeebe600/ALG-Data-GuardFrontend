@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/cloudSolutionsPage.css";
+import HeroBg from "../../assets/images/services/CoudITSolutions/CloutITSolutionsHero.png"
+import BackupandDisaster from "../../assets/images/services/CoudITSolutions/BackupandDisaster.png"
 
 const CloudSolutionsPage = () => {
     const navigate = useNavigate();
@@ -15,7 +17,7 @@ const CloudSolutionsPage = () => {
           "Protect business critical data with a resilient backup approach and a recovery plan designed for real-world outages. Whether your workloads run in the cloud or on-premises, reduce the risk of data loss and keep operations moving without the panic when something breaks.",
         cta: "Learn More",
         image:
-          "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80",
+          BackupandDisaster,
       },
       {
         key: "migration",
@@ -148,7 +150,7 @@ const CloudSolutionsPage = () => {
             <div className="shape-green" />
             <img
               className="hero-img"
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=80"
+              src={HeroBg}
               alt="Cloud data center"
             />
           </div>
@@ -210,8 +212,8 @@ const CloudSolutionsPage = () => {
         <div className="managed-cloud-header">
           <h2>Explore Our Complete Managed Cloud Services</h2>
           <p>
-            Choose the support you need—backup, migration, ongoing operations,
-            or Microsoft 365—then tailor it to your environment.
+            Choose the support you need backup, migration, ongoing operations,
+            or Microsoft 365 then tailor it to your environment.
           </p>
 
           <div className="managed-tabs">

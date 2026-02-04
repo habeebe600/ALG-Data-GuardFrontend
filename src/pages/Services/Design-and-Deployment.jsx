@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./styles/DesignAndDeployment.css";
 
 // your existing hero image
-import heroBg from "../../assets/images/services/Design-and-Deployment-page.png";
+import heroBg from "../../assets/images/services/Design-and-deployment-Hero.png";
 
 const DesignAndDeployment = () => {
   const navigate = useNavigate();

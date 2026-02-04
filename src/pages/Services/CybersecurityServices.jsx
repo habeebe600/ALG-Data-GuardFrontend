@@ -1,6 +1,8 @@
 import React, { useEffect,useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/CybersecurityServices.css";
+import HeroBg from "../../assets/images/services/CyberSecurity/Cyber-Security-Hero.png"
+import CyberSecurityAStrategy from "../../assets/images/services/CyberSecurity/CyberSecurity-AStrategy.png"
 
 const CybersecurityServices = () => {
     const navigate = useNavigate();
@@ -120,7 +122,7 @@ ALG Data Guard.
                         <div className="shape-green" />
                         <img
                             className="hero-img"
-                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"
+                            src={HeroBg}
                             alt="Cybersecurity"
                         />
                     </div>
@@ -152,7 +154,7 @@ ALG Data Guard.
                             <div className="sc-imageCard">
                                 <img
                                     className="hero-img"
-                                    src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"
+                                    src={CyberSecurityAStrategy}
                                     alt="Cybersecurity"
                                 />            </div>
                         </div>

@@ -26,6 +26,11 @@ import logoEkahaubyOokla from "../../assets/images/partners/Ekahau-by-Ookla.jpg"
 import logoHewlettPackardEnterprise from "../../assets/images/partners/HewlettPackardEnterprise.png";
 import logoHPEJuniperNetworking from "../../assets/images/partners/HPEJuniperNetworking.png";
 import logoNutanix from "../../assets/images/partners/Nutanix.png";
+import logoGoogleCloud from "../../assets/images/partners/Google-Cloud-Logo.png";
+import logoDellTechnologies from "../../assets/images/partners/Dell_Technologies-Logo.png";
+import logoIngramMicro from "../../assets/images/partners/ingram-micro-logo.png";
+import logoTDSynnex from "../../assets/images/partners/td-synnex-logo.png";
+
 
 
 const Partners = () => {
@@ -38,6 +43,8 @@ const Partners = () => {
 
   const partners = [
     { name: "AmazonWebServices", logo: logoaws },
+    { name: "Google Cloud", logo: logoGoogleCloud },
+    { name: "Dell Technologies", logo: logoDellTechnologies },
     { name: "Fortinet", logo: logofortinet },
     { name: "Ruckus", logo: logoruckus },
     { name: "ServiceNow", logo: logoServiceNow },
@@ -55,6 +62,8 @@ const Partners = () => {
     { name: "Hewlett Packard Enterprise", logo: logoHewlettPackardEnterprise },
     { name: "HPE Juniper Networking", logo: logoHPEJuniperNetworking },
     { name: "Nutanix", logo: logoNutanix},
+    { name: "Ingram Micro", logo: logoIngramMicro},
+    { name: "TD synnex", logo: logoTDSynnex},
     
   ];
 

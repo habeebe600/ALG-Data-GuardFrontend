@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/NetworkAudit.css";
-import heroBg from "../../assets/images/services/Network-Audit-page.jpg";
+import heroBg from "../../assets/images/services/Network-Audit-Hero.png";
 
 const NetworkAudit = () => {
   const navigate = useNavigate();

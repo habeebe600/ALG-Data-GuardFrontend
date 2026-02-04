@@ -1,6 +1,15 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/AIAutomationServices.css";
+import AIAndAutomationAutomateTask from "../../assets/images/services/AIAndAutomation/AIAndAutomation- AutomateTask.png";
+import AIAndAutomationAutomationWork from "../../assets/images/services/AIAndAutomation/AIAndAutomation-AutomationWork.png";
+import WhatisAIAutomation from "../../assets/images/services/AIAndAutomation/WhatisAIAutomation.avif";
+import AIReadinessAssessment from "../../assets/images/services/AIAndAutomation/AIReadinessAssessment.png";
+import DataSecurityForAIEnablement from "../../assets/images/services/AIAndAutomation/DataSecurityForAIEnablement.png";
+import IdentifyingTheRightAI from "../../assets/images/services/AIAndAutomation/IdentifyingTheRightAI.png";
+import PrecursorActivitiesForAIIntegration from "../../assets/images/services/AIAndAutomation/PrecursorActivitiesForAIIntegration.jpg";
+import MicrosoftCopilotCentric from "../../assets/images/services/AIAndAutomation/MicrosoftCopilotCentric.png";
+import IndustriesThatBenefit from "../../assets/images/services/AIAndAutomation/IndustriesThatBenefit.png";
 
 const AIAutomationServices = () => {
   const navigate = useNavigate();
@@ -57,8 +66,8 @@ const AIAutomationServices = () => {
             <div className="shape-green" />
             <img
               className="hero-img"
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=80"
-              alt="Network Solutions"
+              src={AIAndAutomationAutomateTask}
+              alt="AI AND AUTOMATION"
             />
           </div>
         </div>
@@ -96,7 +105,7 @@ const AIAutomationServices = () => {
           <div className="ai-split-media ai-slide-from-left">
             <img
               className="ai-split-img"
-              src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=80"
+              src={WhatisAIAutomation}
               alt="AI automation"
             />
           </div>
@@ -109,7 +118,7 @@ const AIAutomationServices = () => {
           <div className="ai-split-media ai-slide-from-right">
             <img
               className="ai-split-img"
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"
+              src={AIReadinessAssessment}
               alt="AI readiness"
             />
           </div>
@@ -202,7 +211,7 @@ const AIAutomationServices = () => {
           <div className="ai-split-media ai-slide-from-left">
             <img
               className="ai-split-img"
-              src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=80"
+              src={DataSecurityForAIEnablement}
               alt="Data security"
             />
           </div>
@@ -215,7 +224,7 @@ const AIAutomationServices = () => {
           <div className="ai-split-media ai-slide-from-right">
             <img
               className="ai-split-img"
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"
+              src={IdentifyingTheRightAI}
               alt="AI tools"
             />
           </div>
@@ -286,7 +295,7 @@ const AIAutomationServices = () => {
           <div className="ai-split-media ai-slide-from-left">
             <img
               className="ai-split-img"
-              src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=80"
+              src={PrecursorActivitiesForAIIntegration}
               alt="AI integration"
             />
           </div>
@@ -299,7 +308,7 @@ const AIAutomationServices = () => {
           <div className="ai-split-media ai-slide-from-right">
             <img
               className="ai-split-img"
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"
+              src={MicrosoftCopilotCentric}
               alt="Copilot"
             />
           </div>
@@ -347,7 +356,7 @@ const AIAutomationServices = () => {
           <div className="ai-split-media ai-slide-from-left">
             <img
               className="ai-split-img"
-              src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=80"
+              src={IndustriesThatBenefit}
               alt="Industries"
             />
           </div>
@@ -360,7 +369,7 @@ const AIAutomationServices = () => {
           <div className="ai-split-media ai-slide-from-right">
             <img
               className="ai-split-img"
-              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"
+              src={AIAndAutomationAutomationWork}
               alt="AI agents"
             />
           </div>

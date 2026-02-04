@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/TechnicalRecruiter.css";
 import "./styles/Service-pages.css";
-import heroBg from "../../assets/images/services/Technical-recruiter-page.jpg";
+import heroBg from "../../assets/images/services/Technical-Recruiter-Hero.png";
 
 const TechnicalRecruiter = () => {
   const navigate = useNavigate();

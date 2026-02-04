@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/BusinessStrategy.css";
 import "./styles/Service-pages.css";
-import heroBg from "../../assets/images/services/Business-Strategy-page.png";
+import heroBg from "../../assets/images/services/BusinessStrategy/BusinessStrategyHero.png";
 
 const BusinessStrategy = () => {
   const navigate = useNavigate();

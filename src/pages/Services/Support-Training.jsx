@@ -2,7 +2,7 @@ import React, { useMemo, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/SupportTraining.css";
 import "./styles/Service-pages.css";
-import heroBg from "../../assets/images/services/Support-Training-page.jpg";
+import heroBg from "../../assets/images/services/Support& Training-Hero.png";
 
 const SupportTraining = () => {
   const navigate = useNavigate();

@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/DataCenterColocationServices.css";
+import HeroBg from "../../assets/images/services/DataCentreandColocation/DataCentreandColocationHero.png"
 
 const DataCenterColocationServices = () => {
   const navigate = useNavigate();
@@ -127,7 +128,7 @@ const DataCenterColocationServices = () => {
             <div className="shape-green" />
             <img
               className="hero-img"
-              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80"
+              src={HeroBg}
               alt="Data center colocation"
             />
           </div>

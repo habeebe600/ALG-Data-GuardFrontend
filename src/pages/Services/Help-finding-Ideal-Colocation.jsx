@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/HelpFindingIdealColocation.css";
 import "./styles/Service-pages.css"
-import heroBg from "../../assets/images/services/Help-finding-ideal-colocation-page.jpg";
+import heroBg from "../../assets/images/services/HELP-FINDING-IDEAL-COLOCATIO-Hero.jpg";
 
 const HelpFindingIdealColocation = () => {
   const navigate = useNavigate();
