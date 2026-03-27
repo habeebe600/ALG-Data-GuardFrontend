@@ -3,6 +3,30 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Header/Navbar';
 import './App.css';
 
+// AUTH
+import Login from './pages/Auth/Login';
+import Register from './pages/Auth/Register';
+import VerifyOtp from './pages/Auth/VerifyOtp';
+import ForgotPassword from './pages/Auth/ForgotPassword';
+import ResetPassword from './pages/Auth/ResetPassword';
+import ChangePassword from './pages/Auth/ChangePassword';
+import Settings from "./pages/Setting/Settings";
+
+// KB
+import KnowledgeBase from './pages/KnowledgeBase/KnowledgeBase';
+import AdminKnowledgeBase from './pages/KnowledgeBase/AdminKnowledgeBase';
+import ProtectedRoute from './components/ProtectedRoute';
+import RequireRole from './components/RequireRole';
+import KnowledgeBaseArticle from './pages/KnowledgeBase/KnowledgeBaseArticle';
+
+// TICKETS
+import MyTickets from './pages/Tickets/MyTickets';
+import NewTicket from './pages/Tickets/NewTicket';
+import TicketDetail from './pages/Tickets/TicketDetail';
+import CreateStaff from './pages/Admin/CreateStaff';
+
+import AdminPanel from './pages/Admin/AdminPanel';
+
 // Import pages
 import Home from './pages/Home/Home';
 import Services from './pages/Services/Services';
@@ -29,17 +53,39 @@ import ManagedServices from './pages/Services/ManagedServices'
 import InfrastructureServices from './pages/Services/InfrastructureServices'
 
 function App() {
-  
+
   return (
     <Router>
       <div className="App">
         <ScrollToTop />
         <Navbar />
-        
+
         {/* Main content area */}
         <main className="App-main">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/verify" element={<VerifyOtp />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route
+              path="/change-password"
+              element={
+                <ProtectedRoute>
+                  <ChangePassword />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <ProtectedRoute>
+                  <Settings />
+                </ProtectedRoute>
+              }
+            />
+
             <Route path="/services" element={<Services />} />
             <Route path="/services/Design-and-Deployment" element={<DesignAndDeployment />} />
             <Route path="/services/Business-Strategy" element={<BusinessStrategy />} />
@@ -60,7 +106,86 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/About" element={<About />} />
             <Route path="/Partners" element={<Partners />} />
-            {/* Add more routes as needed */}
+
+            {/* Admin Panel */}
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={['ADMIN']}>
+                    <AdminPanel />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+            {/* Knowledge Base */}
+            <Route
+              path="/knowledge-base"
+              element={
+                <ProtectedRoute>
+                  <KnowledgeBase />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/knowledge-base/:id"
+              element={
+                <ProtectedRoute>
+                  <KnowledgeBaseArticle />
+                </ProtectedRoute>
+              }
+            />
+
+
+            <Route
+              path="/admin/knowledge-base"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={['ADMIN']}>
+                    <AdminKnowledgeBase />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+            {/* Support Ticket */}
+            <Route
+              path="/tickets"
+              element={
+                <ProtectedRoute>
+                  <MyTickets />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/tickets/new"
+              element={
+                <ProtectedRoute>
+                  <NewTicket />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/tickets/:id"
+              element={
+                <ProtectedRoute>
+                  <TicketDetail />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/create-staff"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={['ADMIN']}>
+                    <CreateStaff />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+
           </Routes>
         </main>
         <Footer />

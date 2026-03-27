@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./styles/ManagedNetworkSolutions.css";
+import HeroBg from "../../assets/images/services/NETWORK SOLUTIONS.jpg"
 
 const ManagedNetworkSolutions = () => {
   const navigate = useNavigate();
@@ -160,7 +161,7 @@ const ManagedNetworkSolutions = () => {
                         <div className="shape-green" />
                         <img
                             className="hero-img"
-                            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=80"
+                            src={HeroBg}
                             alt="Network Solutions"
                         />
                     </div>

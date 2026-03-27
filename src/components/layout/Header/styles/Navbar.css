@@ -211,3 +211,128 @@
     height: 80px;
   }
 }
+
+.navbar__auth {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .navbar__auth {
+    display: flex;
+  }
+}
+
+.navbar__auth-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.navbar--scrolled .navbar__auth-link {
+  color: #1f2937;
+}
+
+.navbar__auth-link:hover {
+  color: #f97316;
+}
+
+.navbar__auth-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.7);
+  color: #ffffff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.navbar--scrolled .navbar__auth-btn {
+  border-color: rgba(31,41,55,0.35);
+  color: #1f2937;
+}
+
+.navbar__auth-btn:hover {
+  border-color: #f97316;
+  color: #f97316;
+}
+
+.navbar__auth-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap; /* 🔥 THIS IS THE KEY */
+}
+/* ===============================
+   User Dropdown
+================================ */
+
+.navbar__user {
+  position: relative;
+}
+
+.navbar__user-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+}
+
+.navbar--scrolled .navbar__user-btn {
+  color: #1f2937;
+}
+
+.navbar__user-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  min-width: 200px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 1000;
+}
+
+.navbar__user:hover .navbar__user-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navbar__user-dropdown a,
+.navbar__user-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 14px;
+  color: #1f2937;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar__user-dropdown a:hover,
+.navbar__user-dropdown button:hover {
+  background-color: #f97316;
+  color: #ffffff;
+}
+
+.navbar__user-dropdown .logout-btn {
+  font-weight: 600;
+  color: red;
+}

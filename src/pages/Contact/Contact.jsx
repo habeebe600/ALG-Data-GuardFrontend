@@ -86,15 +86,15 @@ return (
           Let us know what you need or how we can help.
           Just send us a message and we’ll connect you with the right person, right away.
         </p>
-        <div>
+        {/*<div>
           <strong>CORPORATE HEADQUARTERS</strong><br />
           10225 Yonge St, Unit R226<br />
           Richmond Hill, ON L4C 3B2<br />
-        </div>
+          </div>
         <div style={{ marginBottom: '1.2rem' }}>
           <strong>PHONE</strong><br />
           <a className="contact-link" href="tel:+1-742-688-4818">📞 +1-742-688-4818</a>
-        </div>
+        </div>*/}
         <div>
           <strong>CONNECT</strong>
           {/* Social Media Icons */}

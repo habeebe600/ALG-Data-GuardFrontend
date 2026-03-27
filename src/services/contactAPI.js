@@ -3,7 +3,7 @@ import api from './api';
 // Submit contact form
 export const submitContactForm = async (contactData) => {
   try {
-    const response = await api.post('/api/contact', contactData);
+    const response = await api.post('/contact', contactData);
     return response.data;
   } catch (error) {
     throw error.response?.data || { error: 'Network error' };
@@ -13,7 +13,7 @@ export const submitContactForm = async (contactData) => {
 // Optional: Get all contacts (if need this later)
 export const getAllContacts = async () => {
   try {
-    const response = await api.get('/api/contact');
+    const response = await api.get('/contact');
     return response.data;
   } catch (error) {
     throw error.response?.data || { error: 'Failed to fetch contacts' };

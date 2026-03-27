@@ -30,7 +30,8 @@ import logoGoogleCloud from "../../assets/images/partners/Google-Cloud-Logo.png"
 import logoDellTechnologies from "../../assets/images/partners/Dell_Technologies-Logo.png";
 import logoIngramMicro from "../../assets/images/partners/ingram-micro-logo.png";
 import logoTDSynnex from "../../assets/images/partners/td-synnex-logo.png";
-
+import logosophosMsp from "../../assets/images/partners/Sophos MSP Partner.png"
+import logosophosCloud from "../../assets/images/partners/Sophos Cloud Security.png"
 
 
 const Partners = () => {
@@ -64,6 +65,8 @@ const Partners = () => {
     { name: "Nutanix", logo: logoNutanix},
     { name: "Ingram Micro", logo: logoIngramMicro},
     { name: "TD synnex", logo: logoTDSynnex},
+    { name: "Sophos MSP Partner", logo: logosophosMsp},
+    { name: "Sophos Cloud Security", logo: logosophosCloud},
     
   ];
 

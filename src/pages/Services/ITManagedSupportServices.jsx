@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./styles/ITManagedSupportServices.css";
 import HeroBg from "../../assets/images/services/IT-Support-Hero.png"
+import ItsupportHelpDesk from "../../assets/images/services/It support Help Desk Support.png"
 
 const ITManagedSupportServices = () => {
       const navigate = useNavigate();
@@ -15,8 +16,7 @@ const ITManagedSupportServices = () => {
                 desc:
                     "Our 24/7 helpdesk delivers on-demand IT support whenever you need it. We resolve issues fast so your team can stay productive and focused on the business.",
                 cta: "Learn More",
-                image:
-                    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80",
+                image:ItsupportHelpDesk,
             },
             {
                 key: "migration",

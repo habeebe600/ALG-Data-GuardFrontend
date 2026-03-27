@@ -1,0 +1,188 @@
+/* Admin panel theme (matches tickets look) */
+:root {
+    --a-bg: #0b1220;
+    --a-card: rgba(0, 0, 0, .22);
+    --a-border: rgba(255, 255, 255, .10);
+    --a-text: rgba(255, 255, 255, .92);
+    --a-muted: rgba(255, 255, 255, .70);
+}
+
+/* Layout */
+.a-page {
+    max-width: 1100px;
+    margin: 90px auto 40px;
+    padding: 0 16px;
+}
+
+.a-title {
+    margin: 0 0 10px 0;
+    color: var(--a-text);
+}
+
+/* Tabs */
+.a-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.a-tabBtn {
+    border: 1px solid var(--a-border);
+    background: rgba(255, 255, 255, .04);
+    color: var(--a-text);
+    padding: 8px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.a-tabBtn:hover {
+    border-color: rgba(249, 115, 22, .25);
+    background: rgba(255, 255, 255, .06);
+}
+
+.a-tabBtn.is-active {
+    background: rgba(249, 115, 22, .14);
+    border-color: rgba(249, 115, 22, .35);
+}
+
+/* Cards */
+.a-card {
+    margin-top: 16px;
+    border: 1px solid var(--a-border);
+    background: var(--a-card);
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.a-cardTop {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.a-cardTitle {
+    margin: 0;
+    color: var(--a-text);
+}
+
+/* Alerts */
+.a-alert {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--a-border);
+    color: var(--a-text);
+    background: rgba(255, 255, 255, .04);
+}
+
+.a-alert--success {
+    border-color: rgba(34, 197, 94, .35);
+    background: rgba(34, 197, 94, .10);
+}
+
+.a-alert--error {
+    border-color: rgba(239, 68, 68, .35);
+    background: rgba(239, 68, 68, .10);
+}
+
+/* Form */
+.a-form {
+    margin-top: 10px;
+    display: grid;
+    gap: 10px;
+    max-width: 520px;
+}
+
+.a-label {
+    color: var(--a-muted);
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.a-input,
+.a-select {
+    width: 100%;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid var(--a-border);
+    background: rgba(0, 0, 0, .35);
+    color: var(--a-text);
+    padding: 10px 12px;
+    outline: none;
+}
+
+.a-input:focus,
+.a-select:focus {
+    border-color: rgba(249, 115, 22, .55);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, .15);
+}
+
+/* Buttons */
+.a-btn {
+    border: 1px solid var(--a-border);
+    background: rgba(255, 255, 255, .04);
+    color: var(--a-text);
+    padding: 10px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.a-btn:hover {
+    border-color: rgba(249, 115, 22, .25);
+    background: rgba(255, 255, 255, .06);
+}
+
+.a-btn:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+.a-btn--primary {
+    border-color: rgba(249, 115, 22, .35);
+    background: rgba(249, 115, 22, .18);
+}
+
+/* Users list */
+.a-users {
+    margin-top: 10px;
+    display: grid;
+    gap: 10px;
+}
+
+.a-userItem {
+    border: 1px solid var(--a-border);
+    border-radius: 14px;
+    padding: 12px;
+    background: rgba(0, 0, 0, .18);
+}
+
+.a-userMeta {
+    margin-top: 6px;
+    color: var(--a-muted);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.a-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.a-link {
+    color: rgba(249, 115, 22, .95);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.a-link:hover {
+    text-decoration: underline;
+}
