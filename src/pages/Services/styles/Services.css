@@ -1,21 +1,15 @@
 .services {
   width: 100%;
   min-height: 100vh;
-  background: #f6f8fa;;
+  background: #ffffff;;
   padding: 0;
 }
 
 .services__hero {
-  background: linear-gradient(
-    135deg,
-    #0f172a 0%,
-    #1e293b 25%,
-    #334155 50%,
-    #1e293b 75%,
-    #0f172a 100%
-  );
-  color: #fff;
-  padding: 4rem 0 2rem 0;
+  background: radial-gradient(900px 400px at 10% 15%, rgba(249,115,22,0.20) 0%, rgba(249,115,22,0.0) 60%),
+    linear-gradient(180deg, #0b2b2e 0%, #ffffff 72%);
+  color: #0b2b2e;
+  padding: 12rem 0 2rem 0;
   text-align: center;
   height: 50vh;
 }
@@ -40,13 +34,13 @@ font-size: 1.14rem;
 }
 
 .services__lead {
-  margin: 2.2rem auto 3.3rem auto;
+  margin: 1rem auto 1.3rem auto;
   max-width: 950px;
   text-align: center;
   font-size: 1.5rem;
   color: #232323;
   font-weight: 500;
-  background: #fff;
+  background: #ffffff;
   border-radius: 0;
   padding: 2.5rem 0 2.2rem 0;
 }
@@ -66,7 +60,7 @@ font-size: 1.14rem;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem 1rem 4rem 1rem;
-  background: #f6f8fa;
+  background: #ffffff;
 }
 
 .services__card {
@@ -131,8 +125,8 @@ font-size: 1.14rem;
 }
 
 .services__link:hover {
-  color: #0f316e;
-  border-color: #0f316e;
+  color: #f97316;
+  border-color: #f97316;
 }
 
 @media (max-width: 800px) {
@@ -156,5 +150,50 @@ font-size: 1.14rem;
   }
   .services__hero {
     padding: 2.4rem 0 1.2rem 0;
+  }
+}
+
+.servicesTabs{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  margin: 0 auto 1.8rem auto;
+}
+
+.servicesTabs__inner{
+  width: min(1180px, 96%);
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 18px;
+  box-shadow: 0 22px 55px rgba(0,0,0,0.10);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.servicesTabs__tab{
+  border: none;
+  background: transparent;
+  padding: 16px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+  color: #0b2b2e;
+  cursor: pointer;
+  transition: background-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
+}
+
+.servicesTabs__tab.active{
+  background: #fff;
+  box-shadow: inset 0 0 0 2px #e6843b;
+  color: #0b2b2e;
+}
+
+@media (max-width: 900px){
+  .servicesTabs__inner{
+    border-radius: 18px;
+    grid-template-columns: 1fr;
   }
 }

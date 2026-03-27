@@ -1,0 +1,691 @@
+/* =====================
+   GLOBAL
+===================== */
+:root {
+  --dark-bg: #2f2f2f;
+  --dark-bg-2: #5a5a5a;
+  --primary-green: #19c463;
+  --text-dark: #0b2b2e;
+  --muted: #5f6f73;
+  --light-bg: #f3f7f8;
+  --card-bg: #ffffff;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --shadow-soft: 0 20px 50px rgba(0,0,0,0.12);
+  --shadow-card: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-dark);
+  background: #ffffff;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero-section {
+  min-height: 90vh;
+  padding: 120px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: radial-gradient(900px 400px at 10% 15%, rgba(249,115,22,0.20) 0%, rgba(249,115,22,0.0) 60%),
+    linear-gradient(180deg, #0b2b2e 0%, #ffffff 72%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  max-width: 520px;
+  margin-top: 80px;
+}
+
+.hero-left h1 {
+  font-size: 64px;
+  line-height: 1.05;
+  color: #ffffff;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.hero-left p {
+  font-size: 20px;
+  color: #0b2b2e;
+  margin-bottom: 40px;
+}
+
+.hero-left p span {
+    font-size: 25px;
+    color: black;
+    margin-top: 10px;
+}
+.btn-orange{
+  background-color: #f97316;
+  color: #fff;
+  border: none;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(196, 105, 25, 0.35);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  transition: padding 240ms ease, background-color 240ms ease,
+              box-shadow 240ms ease, transform 240ms ease;
+}
+
+.btn-arrow{
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 240ms ease, transform 240ms ease;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.btn-orange:hover{
+  padding-left: 28px;
+  padding-right: 44px;
+  box-shadow: 0 10px 30px rgba(196, 105, 25, 0.35);
+}
+
+.btn-orange:hover .btn-arrow{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.hero-right {
+  position: relative;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 520px;
+  height: 360px;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-soft);
+}
+
+.shape-circle {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: #111;
+  border-radius: 50%;
+  right: -40px;
+  top: -40px;
+  z-index: 1;
+}
+
+.shape-green {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: #f97316;
+  border-radius: 50%;
+  left: 40%;
+  bottom: -60px;
+  z-index: 0;
+}
+
+/* =========================
+   NETWORK PERFORMANCE SECTION
+========================= */
+.np-wrap{
+  padding: 90px 6% 110px;
+  background: #ffffff;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0b2b2e;
+}
+
+.np-container{
+  width: min(1220px, 92%);
+  margin: 0 auto;
+}
+
+.np-header{
+  max-width: 1100px;
+}
+
+.np-title{
+  margin: 0 0 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-size: clamp(34px, 3.3vw, 56px);
+  color: #0b2b2e;
+}
+
+.np-sub{
+  margin: 0;
+  max-width: 120ch;
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(11, 43, 46, 0.78);
+}
+
+/* 3 columns like screenshot */
+.np-grid{
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 86px;
+  row-gap: 36px;
+}
+
+.np-h3{
+  margin: 0 0 18px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  font-size: 34px;
+  color: #0b2b2e;
+}
+
+.np-p{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(11, 43, 46, 0.78);
+}
+
+/* green highlighted phrases */
+.np-accent{
+  color: #f97316;
+  font-weight: 600;
+}
+
+/* ---------- Stagger the 3 text blocks inside np-grid ---------- */
+.np-wrap .np-block{
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 650ms cubic-bezier(.2,.8,.2,1),
+              transform 650ms cubic-bezier(.2,.8,.2,1);
+}
+
+.np-wrap.in .np-block{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.np-wrap.in .np-block:nth-child(1){ transition-delay: 0ms; }
+.np-wrap.in .np-block:nth-child(2){ transition-delay: 140ms; }
+.np-wrap.in .np-block:nth-child(3){ transition-delay: 280ms; }
+
+/* Responsive */
+@media (max-width: 980px){
+  .np-grid{
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+    column-gap: 0;
+  }
+
+  .np-h3{
+    font-size: 28px;
+  }
+}
+
+
+/* =========================
+   MANAGED NETWORK SECTION
+========================= */
+.mn-wrap{
+  padding: 90px 6% 110px;
+  background: #ffffff;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.mn-container{
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+.mn-header{
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.mn-title{
+  margin: 0 0 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: clamp(30px, 2.6vw, 44px);
+  color: #0b2b2e;
+}
+
+.mn-sub{
+  margin: 0 auto;
+  max-width: 115ch;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(11, 43, 46, 0.75);
+}
+
+/* Cards grid */
+.mn-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
+}
+
+/* Card base (matches “before hover”) */
+.mn-card{
+  background: #f2f2f2;
+  border-radius: 18px;
+  padding: 42px 34px 34px;
+  text-align: center;
+
+  /* smooth hover */
+  transition: transform 260ms cubic-bezier(.2,.8,.2,1),
+              box-shadow 260ms cubic-bezier(.2,.8,.2,1),
+              background-color 260ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* Icon circle */
+.mn-iconWrap{
+  width: 82px;
+  height: 82px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.75);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+}
+
+.mn-icon{
+  font-size: 34px; /* replace when using SVGs */
+  line-height: 1;
+}
+
+/* Text */
+.mn-cardTitle{
+  margin: 0 0 14px;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #0b2b2e;
+}
+
+.mn-cardText{
+  margin: 0 auto 24px;
+  max-width: 40ch;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: rgba(11, 43, 46, 0.72);
+}
+
+/* Learn more pill */
+.mn-btn{
+  border-color: #f97316;
+  background: transparent;
+  color: rgba(11, 43, 46, 0.8);
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mn-btn:hover {
+   background: rgba(196, 128, 25, 0.08);
+
+}
+
+/* =========================
+   HOVER (matches “after hover”)
+========================= */
+.mn-card:hover{
+  background: #ffffff;
+  transform: translateY(-10px);
+  box-shadow: 0 26px 70px rgba(0,0,0,0.18);
+}
+
+/* Keep hover for keyboard users too */
+.mn-card:focus-within{
+  background: #ffffff;
+  transform: translateY(-10px);
+  box-shadow: 0 26px 70px rgba(0,0,0,0.18);
+}
+
+/* ---------- Section reveal (cards + text section) ---------- */
+.mn-wrap,
+.np-wrap{
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 700ms cubic-bezier(.2,.8,.2,1),
+              transform 700ms cubic-bezier(.2,.8,.2,1);
+}
+
+.mn-wrap.in,
+.np-wrap.in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Stagger the cards inside mn-grid ---------- */
+
+
+/* start hidden */
+.mn-reveal{
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1000ms cubic-bezier(.2,.8,.2,1),
+              transform 1000ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* reveal when observed */
+.mn-reveal.in{
+  opacity: 1;
+  transform: translateY(0);
+}
+.mn-card.in:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 26px 70px rgba(0,0,0,0.18);
+}
+
+
+
+/* Responsive */
+@media (max-width: 980px){
+  .mn-grid{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .mn-card{
+    padding: 36px 22px 26px;
+  }
+}
+
+/* =====================
+   CTA BANNER
+===================== */
+.network-cta-section {
+    padding: 80px 6%;
+    background: linear-gradient(180deg, #ffffff 0%, #000000 100%)
+}
+
+.network-cta-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 32px;
+    overflow: hidden;
+    background: #0b2b2e;
+    height: 380px;
+}
+/* CTA bottom -> up reveal */
+.cta-reveal{
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 700ms cubic-bezier(.2,.8,.2,1),
+              transform 700ms cubic-bezier(.2,.8,.2,1);
+}
+
+.cta-reveal.in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.network-cta-illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.network-cta-right {
+    padding: 48px 64px;
+    color: #ffffff;
+}
+
+.network-h2 {
+    color: #f97316;
+    line-height: 1.2;
+    font-size: 36px;
+    margin-bottom: 14px;
+}
+
+.network-cta-right span {
+    color: #f97316;
+}
+
+.network-cta-right p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 22px;
+}
+
+.network-cta-btn {
+    padding: 16px 36px;
+    background: #f97316;
+    color: #ffffff;
+    border-radius: 999px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* =========================
+   CYBERSECURITY SINGLE CARD
+========================= */
+.cysec-wrap{
+  padding: 40px 6% 110px;
+  background: #000000;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.cysec-container{
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.cysec-card{
+  width: min(520px, 100%);
+  background: #f2f2f2;
+  border-radius: 18px;
+  padding: 44px 38px 38px;
+  text-align: center;
+
+  /* scroll-in start state */
+  opacity: 0;
+  transform: translateY(44px);
+  transition: opacity 700ms cubic-bezier(.2,.8,.2,1),
+              transform 700ms cubic-bezier(.2,.8,.2,1);
+}
+
+.cysec-card.in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cysec-iconWrap{
+  width: 86px;
+  height: 86px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.75);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+}
+
+.cysec-icon{
+  width: 44px;
+  height: 44px;
+  color: #0b2b2e;
+}
+
+.cysec-title{
+  margin: 0 0 12px;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #0b2b2e;
+}
+
+.cysec-text{
+  margin: 0 auto 22px;
+  max-width: 40ch;
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(11, 43, 46, 0.75);
+}
+
+.cysec-accent{
+  color: #f97316;
+  font-weight: 600;
+}
+
+.cysec-btn{
+  border: 2px solid #f97316;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.85);
+  border-radius: 999px;
+  padding: 16px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  gap: 10px;
+  
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+
+  transition: padding 240ms ease, background-color 240ms ease,
+              box-shadow 240ms ease, transform 240ms ease;
+}
+
+
+.cysec-btn-arrow{
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 240ms ease, transform 240ms ease;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.cysec-btn:hover{
+  padding-left: 28px;
+  padding-right: 44px;
+  box-shadow: 0 10px 30px rgba(196, 105, 25, 0.35);
+}
+
+.cysec-btn:hover .cysec-btn-arrow{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =====================
+   MOBILE (<= 768px)
+===================== */
+@media (max-width: 768px) {
+
+  /* Global spacing */
+  .hero-section,
+  .services-section,
+  .managed-network-section,
+  .network-cta-section,
+  .network-benefits-section {
+    padding: 72px 6%;
+  }
+
+  /* =====================
+     HERO
+  ===================== */
+  .hero-section {
+    min-height: auto;
+    flex-direction: column;
+    gap: 28px;
+    padding-top: 84px;
+    padding-bottom: 64px;
+  }
+
+  .hero-left {
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .hero-left h1 {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+
+  .hero-left p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .btn-orange {
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+  .hero-right {
+    width: 100%;
+  }
+
+  .hero-image-container {
+    width: 100%;
+    height: 240px;
+  }
+
+  /* Decorative shapes: keep them but smaller so they don't overflow */
+  .shape-circle {
+    width: 200px;
+    height: 200px;
+    right: -40px;
+    top: -40px;
+  }
+
+  .shape-green {
+    width: 140px;
+    height: 140px;
+    left: 45%;
+    bottom: -50px;
+  }
+
+  /* =====================
+     CTA BANNER
+  ===================== */
+  .network-cta-card {
+    grid-template-columns: 1fr;
+    border-radius: 22px;
+  }
+
+  .network-cta-illustration {
+    height: 220px;
+  }
+
+  .network-cta-right {
+    padding: 28px 20px;
+  }
+
+  .network-cta-right h2 {
+    font-size: 28px;
+  }
+
+  .network-cta-right p {
+    font-size: 16px;
+  }
+
+  .network-cta-btn {
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+}

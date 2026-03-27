@@ -1,27 +1,22 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
+import { useAuth } from '../../../context/AuthContext'; // adjust path if needed
 import './styles/MobileMenu.css';
 
-const MobileMenu = ({ 
-  onClose, 
-  solutionsItems, 
-  servicesItems, 
-  resourcesItems, 
-  aboutItems 
-}) => {
-  const [expandedMenu, setExpandedMenu] = useState(null);
+const MobileMenu = ({ onClose }) => {
   const navigate = useNavigate();
-
-  const toggleMenu = (menu) => {
-    setExpandedMenu(expandedMenu === menu ? null : menu);
-  };
+  const { user } = useAuth();
 
   const menuVariants = {
     hidden: { x: '100%' },
     visible: { x: 0, transition: { type: 'tween', duration: 0.3 } },
     exit: { x: '100%', transition: { type: 'tween', duration: 0.3 } }
+  };
+
+  const go = (path) => {
+    onClose?.();
+    navigate(path);
   };
 
   return (
@@ -44,159 +39,49 @@ const MobileMenu = ({
         className="mobile-menu"
       >
         <div className="mobile-menu__content">
-          {/* Solutions 
-          <div className="mobile-menu__section">
-            <button 
-              className="mobile-menu__section-title"
-              onClick={() => toggleMenu('solutions')}
-            >
-              Solutions
-              <svg 
-                className={`mobile-menu__arrow ${expandedMenu === 'solutions' ? 'mobile-menu__arrow--open' : ''}`}
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            {expandedMenu === 'solutions' && (
-              <div className="mobile-menu__items">
-                {solutionsItems.map((item, index) => (
-                  <Link 
-                    key={index} 
-                    to={item.href} 
-                    className="mobile-menu__item"
-                    onClick={onClose}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Main links */}
+          <Link to="/services" className="mobile-menu__section-title" onClick={onClose}>
+            Services
+          </Link>
 
-          {/* Services 
-          <div className="mobile-menu__section">
-            <button 
-              className="mobile-menu__section-title"
-              onClick={() => toggleMenu('services')}
-            >
-              Services
-              <svg 
-                className={`mobile-menu__arrow ${expandedMenu === 'services' ? 'mobile-menu__arrow--open' : ''}`}
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            {expandedMenu === 'services' && (
-              <div className="mobile-menu__items">
-                {servicesItems.map((item, index) => (
-                  <Link 
-                    key={index} 
-                    to={item.href} 
-                    className="mobile-menu__item"
-                    onClick={onClose}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Resources 
-          <div className="mobile-menu__section">
-            <button 
-              className="mobile-menu__section-title"
-              onClick={() => toggleMenu('resources')}
-            >
-              Resources
-              <svg 
-                className={`mobile-menu__arrow ${expandedMenu === 'resources' ? 'mobile-menu__arrow--open' : ''}`}
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            {expandedMenu === 'resources' && (
-              <div className="mobile-menu__items">
-                {resourcesItems.map((item, index) => (
-                  <Link 
-                    key={index} 
-                    to={item.href} 
-                    className="mobile-menu__item"
-                    onClick={onClose}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Partners 
-          <Link 
-            to="/partners" 
-            className="mobile-menu__section-title"
-            onClick={onClose}
-          >
+          <Link to="/partners" className="mobile-menu__section-title" onClick={onClose}>
             Partners
           </Link>
 
-          {/* About 
-          <div className="mobile-menu__section">
-            <button 
-              className="mobile-menu__section-title"
-              onClick={() => toggleMenu('about')}
-            >
-              About
-              <svg 
-                className={`mobile-menu__arrow ${expandedMenu === 'about' ? 'mobile-menu__arrow--open' : ''}`}
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor"
+          <Link to="/about" className="mobile-menu__section-title" onClick={onClose}>
+            About
+          </Link>
+
+        
+          {/* Auth/CTA logic */}
+          {!user ? (
+            <div style={{ display: 'grid', gap: 10, marginTop: 14 }}>
+              <motion.button
+                whileTap={{ scale: 0.98 }}
+                className="mobile-menu__cta-btn"
+                onClick={() => go('/login')}
               >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            {expandedMenu === 'about' && (
-              <div className="mobile-menu__items">
-                {aboutItems.map((item, index) => (
-                  <Link 
-                    key={index} 
-                    to={item.href} 
-                    className="mobile-menu__item"
-                    onClick={onClose}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-          {/* CTA Button */}
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="mobile-menu__cta-btn"
-                      onClick={() => navigate('/contact')}
-                    >
-                      LET'S MEET
-                    </motion.button>
+                Login
+              </motion.button>
+
+              <motion.button
+                whileTap={{ scale: 0.98 }}
+                className="mobile-menu__cta-btn"
+                onClick={() => go('/register')}
+              >
+                Sign up
+              </motion.button>
+            </div>
+          ) : (
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mobile-menu__cta-btn"
+              onClick={() => go('/contact')}
+            >
+              LET&apos;S MEET
+            </motion.button>
+          )}
         </div>
       </motion.div>
     </>

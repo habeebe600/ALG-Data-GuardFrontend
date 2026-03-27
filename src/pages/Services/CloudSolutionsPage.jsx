@@ -1,7 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/cloudSolutionsPage.css";
+import HeroBg from "../../assets/images/services/CoudITSolutions/CloutITSolutionsHero.png"
+import BackupandDisaster from "../../assets/images/services/CoudITSolutions/BackupandDisaster.png"
 
 const CloudSolutionsPage = () => {
+    const navigate = useNavigate();
+
   const tabs = useMemo(
     () => [
       {
@@ -9,10 +14,10 @@ const CloudSolutionsPage = () => {
         label: "BACKUP AND DISASTER RECOVERY",
         title: "Backup and Disaster Recovery",
         desc:
-          "Protect business-critical data with a resilient backup approach and a recovery plan designed for real-world outages. Whether your workloads run in the cloud or on-premises, reduce the risk of data loss and keep operations moving—without the panic when something breaks.",
+          "Protect business critical data with a resilient backup approach and a recovery plan designed for real-world outages. Whether your workloads run in the cloud or on-premises, reduce the risk of data loss and keep operations moving without the panic when something breaks.",
         cta: "Learn More",
         image:
-          "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=80",
+          BackupandDisaster,
       },
       {
         key: "migration",
@@ -52,7 +57,7 @@ const CloudSolutionsPage = () => {
   const benefitsRef = useRef(null);
   const [benefitsInView, setBenefitsInView] = useState(false);
 
-useEffect(() => {
+  useEffect(() => {
     const el = benefitsRef.current;
     if (!el) return;
 
@@ -68,11 +73,11 @@ useEffect(() => {
   }, []);
 
   const cardRefs = useRef([]);
-  
-      useEffect(() => {
+
+  useEffect(() => {
     const els = cardRefs.current.filter(Boolean);
     if (!els.length) return;
-  
+
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -84,18 +89,18 @@ useEffect(() => {
       },
       { threshold: 0.2 }
     );
-  
+
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
-  
+
   const ctaRef = useRef(null);
   const [ctaInView, setCtaInView] = useState(false);
-  
+
   useEffect(() => {
     const el = ctaRef.current;
     if (!el) return;
-  
+
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -105,25 +110,38 @@ useEffect(() => {
       },
       { threshold: 0.25 }
     );
-  
+
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
-  
+
 
   return (
     <>
       {/* HERO SECTION */}
       <section className="hero-section">
-        <div className="hero-left">
-          <h1>
-            Cloud IT <br /> Solutions
+       
+          <div className="hero-left">
+          <div className="dd-serviceLabel">
+            <span>CLOUD IT SOLUTIONS</span>
+          </div>
+
+          <h1 className="hc-hero__title" >
+            Future ready network for <br />
+            high-performance cloud.
           </h1>
-          <p>
+
+          <p className="hc-hero__lead" >
             Build a modern, flexible IT foundation with cloud services designed
             for performance, security, and scale.
           </p>
-          <button className="btn-green">Get in Touch</button>
+
+          <button className="btn-orange" type="button" onClick={() => navigate("/contact")}>
+            <span className="btn-text">Meet Our Experts Today</span>
+            <span className="btn-arrow" aria-hidden="true">
+              ›
+            </span>
+          </button>
         </div>
 
         <div className="hero-right">
@@ -132,7 +150,7 @@ useEffect(() => {
             <div className="shape-green" />
             <img
               className="hero-img"
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=80"
+              src={HeroBg}
               alt="Cloud data center"
             />
           </div>
@@ -194,8 +212,8 @@ useEffect(() => {
         <div className="managed-cloud-header">
           <h2>Explore Our Complete Managed Cloud Services</h2>
           <p>
-            Choose the support you need—backup, migration, ongoing operations,
-            or Microsoft 365—then tailor it to your environment.
+            Choose the support you need backup, migration, ongoing operations,
+            or Microsoft 365 then tailor it to your environment.
           </p>
 
           <div className="managed-tabs">
@@ -212,7 +230,7 @@ useEffect(() => {
           </div>
         </div>
 
-<div className="managed-cloud-body tab-enter" key={activeTab.key}>
+        <div className="managed-cloud-body tab-enter" key={activeTab.key}>
           <div className="managed-card">
             <div className="managed-imageWrap">
               <img
@@ -225,7 +243,7 @@ useEffect(() => {
             <div className="managed-content">
               <h3>{activeTab.title}</h3>
               <p>{activeTab.desc}</p>
-              <button className="managed-cta" type="button">
+              <button className="CS-managed-cta" type="button" onClick={() => navigate("/contact")}>
                 {activeTab.cta}
               </button>
             </div>
@@ -233,40 +251,40 @@ useEffect(() => {
         </div>
       </section>
       {/* SECTION 4: CTA BANNER */}
-<section className="cloud-cta-section">
-  <div
-    ref={ctaRef}
-    className={`cloud-cta-card cloud-cta-reveal ${ctaInView ? "in" : ""}`}
-  >  
-    <div className="cloud-cta-left">
-      <img
-        className="cloud-cta-illustration"
-        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80"
-        alt="Support illustration"
-      />
-    </div>
+      <section className="cloud-cta-section">
+        <div
+          ref={ctaRef}
+          className={`cloud-cta-card cloud-cta-reveal ${ctaInView ? "in" : ""}`}
+        >
+          <div className="cloud-cta-left">
+            <img
+              className="cloud-cta-illustration"
+              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80"
+              alt="Support illustration"
+            />
+          </div>
 
-    <div className="cloud-cta-right">
-      <h2>
-        Discover Your Cloud <br />
-        Business Solution With <br />
-        <span>ALG Data Guard</span>
-      </h2>
+          <div className="cloud-cta-right">
+            <h2>
+              Discover Your Cloud <br />
+              Business Solution With <br />
+              <span>ALG Data Guard</span>
+            </h2>
 
-      <p>
-        Upgrade day-to-day operations with a cloud solution tailored to your
-        goals. Reach out to plan a practical cloud strategy that fits your
-        team, apps, and budget.
-      </p>
+            <p>
+              Upgrade day-to-day operations with a cloud solution tailored to your
+              goals. Reach out to plan a practical cloud strategy that fits your
+              team, apps, and budget.
+            </p>
 
-      <button className="cloud-cta-btn" type="button">
-        Find My Cloud Solution
-      </button>
-    </div>
-  </div>
-</section>
-{/* SECTION 5: Cloud benefits (scroll reveal) */}
-<section className="cloud-benefits-section">
+            <button className="cloud-cta-btn" type="button" onClick={() => navigate("/contact")}>
+              Find My Cloud Solution
+            </button>
+          </div>
+        </div>
+      </section>
+      {/* SECTION 5: Cloud benefits (scroll reveal) */}
+      <section className="cloud-benefits-section">
         <div className="cloud-benefits-wrap" ref={benefitsRef}>
           <div className={`benefits-left ${benefitsInView ? "in" : ""}`}>
             <h2>Our Cloud IT Solutions Keep Your Business Moving Forward</h2>

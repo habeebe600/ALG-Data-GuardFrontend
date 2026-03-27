@@ -1,0 +1,600 @@
+/* =====================
+   GLOBAL
+===================== */
+:root {
+  --dark-bg: #2f2f2f;
+  --dark-bg-2: #5a5a5a;
+  --primary-green: #19c463;
+  --text-dark: #0b2b2e;
+  --muted: #5f6f73;
+  --light-bg: #f3f7f8;
+  --card-bg: #ffffff;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --shadow-soft: 0 20px 50px rgba(0,0,0,0.12);
+  --shadow-card: 0 16px 40px rgba(0,0,0,0.08);
+  --st-text: #0b2b2e;
+  --st-muted: rgba(11, 43, 46, 0.78);
+  --st-card: #ffffff;
+  --st-border: rgba(11, 43, 46, 0.75);
+  --st-shadow: 0 18px 55px rgba(0,0,0,0.10);
+  --st-shadowHover: 0 28px 75px rgba(0,0,0,0.16);
+  --st-radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-dark);
+  background: #ffffff;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero-section {
+  min-height: 90vh;
+  padding: 120px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: radial-gradient(900px 400px at 10% 15%, rgba(249,115,22,0.20) 0%, rgba(249,115,22,0.0) 60%),
+    linear-gradient(180deg, #0b2b2e 0%, #ffffff 72%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  max-width: 520px;
+  margin-top: 80px;
+}
+
+.hero-left h1 {
+  font-size: 64px;
+  line-height: 1.05;
+  color: #ffffff;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.hero-left p {
+  font-size: 20px;
+  color: #0b2b2e;
+  margin-bottom: 40px;
+}
+
+.hero-left p span {
+    font-size: 25px;
+    color: black;
+    margin-top: 10px;
+}
+.btn-orange{
+  background-color: #f97316;
+  color: #fff;
+  border: none;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(196, 105, 25, 0.35);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  transition: padding 240ms ease, background-color 240ms ease,
+              box-shadow 240ms ease, transform 240ms ease;
+}
+
+.btn-arrow{
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 240ms ease, transform 240ms ease;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.btn-orange:hover{
+  padding-left: 28px;
+  padding-right: 44px;
+  box-shadow: 0 10px 30px rgba(196, 105, 25, 0.35);
+}
+
+.btn-orange:hover .btn-arrow{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.hero-right {
+  position: relative;
+}
+
+.hero-image-container {
+  position: relative;
+  width: 520px;
+  height: 360px;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-soft);
+}
+
+.shape-circle {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: #111;
+  border-radius: 50%;
+  right: -40px;
+  top: -40px;
+  z-index: 1;
+}
+
+.shape-green {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: #f97316;
+  border-radius: 50%;
+  left: 40%;
+  bottom: -60px;
+  z-index: 0;
+}
+
+/* =========================
+   NETWORK PERFORMANCE SECTION
+========================= */
+.sc-wrap{
+  padding: 90px 6% 110px;
+  background: #ffffff;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0b2b2e;
+}
+
+.sc-container{
+  width: min(1220px, 100%);
+  margin: 65px auto;
+}
+
+.sc-header{
+  max-width: 1100px;
+}
+
+.sc-title{
+  margin: 0 0 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-size: clamp(34px, 3.3vw, 56px);
+  color: #0b2b2e;
+}
+
+.sc-sub{
+  margin: 0;
+  max-width: 120ch;
+  font-size: 16px;
+  line-height: 1.85;
+  color: rgba(11, 43, 46, 0.78);
+}
+
+/* 3 columns like screenshot */
+.sc-grid{
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 86px;
+  row-gap: 36px;
+}
+
+.sc-h3{
+  margin: 0 0 18px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  font-size: 34px;
+  color: #0b2b2e;
+}
+
+.sc-p{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(11, 43, 46, 0.78);
+}
+
+/* green highlighted phrases */
+.sc-accent{
+  color: #f97316;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .sc-grid{
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+    column-gap: 0;
+  }
+
+  .sc-h3{
+    font-size: 28px;
+  }
+}
+/* =====================
+   Explore strategy cards
+===================== */
+
+.st-wrap{
+  background: #ffffff;
+  padding: 70px 0 90px;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--st-text);
+}
+
+.st-container{
+  width: min(1240px, 92%);
+  margin: 0 auto;
+}
+
+/* Top heading + paragraph */
+.st-header{
+  margin-bottom: 44px;
+}
+
+.st-title{
+  margin: 0 0 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  font-size: clamp(34px, 3.0vw, 54px);
+  color: var(--st-text);
+}
+
+.st-sub{
+  margin: 0;
+  max-width: 150ch;           /* long line like screenshot */
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--st-muted);
+}
+
+/* Cards grid: 2 columns */
+.st-grid{
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px;
+}
+
+/* Card base */
+.st-card{
+  background: var(--st-card);
+  border-radius: var(--st-radius);
+  box-shadow: var(--st-shadow);
+  padding: 36px 40px 28px;
+  text-align: center;
+
+  /* scroll-in initial state */
+  opacity: 0;
+  transform: translateY(28px);
+
+  transition:
+    opacity 650ms cubic-bezier(.2,.8,.2,1),
+    transform 650ms cubic-bezier(.2,.8,.2,1),
+    box-shadow 240ms ease,
+    background-color 240ms ease;
+}
+
+/* in-view */
+.st-card.in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover only after it has revealed (prevents transform conflict) */
+.st-card.in:hover{
+  transform: translateY(-10px);
+  box-shadow: var(--st-shadowHover);
+}
+
+/* Title inside card */
+.st-cardTitle{
+  margin: 0 0 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-size: 28px;
+  color: var(--st-text);
+}
+
+/* Text inside card */
+.st-cardText{
+  margin: 0 auto 22px;
+  max-width: 58ch;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--st-muted);
+}
+
+/* Outline pill button */
+.st-btn{
+  border: 2px solid #f97316;
+  background: transparent;
+  color: rgba(11, 43, 46, 0.75);
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+ 
+.st-btn:hover {
+   background: rgba(196, 128, 25, 0.08);
+
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .st-grid{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .st-card{
+    padding: 30px 22px 22px;
+  }
+
+  .st-cardTitle{
+    font-size: 24px;
+  }
+}
+/* =====================
+   CTA BANNER
+===================== */
+.sc-cta-section {
+    padding: 80px 6%;
+    background: white;
+}
+
+.sc-cta-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 32px;
+    overflow: hidden;
+    background: #0b2b2e;
+    height: 380px;
+}
+/* CTA bottom -> up reveal */
+.cta-reveal{
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 700ms cubic-bezier(.2,.8,.2,1),
+              transform 700ms cubic-bezier(.2,.8,.2,1);
+}
+
+.cta-reveal.in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sc-cta-illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sc-cta-right {
+    padding: 48px 64px;
+    color: #ffffff;
+}
+
+.sc-h2 {
+    color: #f97316;
+    line-height: 1.2;
+    font-size: 36px;
+    margin-bottom: 14px;
+}
+
+.sc-cta-right span {
+    color: #f97316;
+}
+
+.sc-cta-right p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 22px;
+}
+
+.sc-cta-btn {
+    padding: 16px 36px;
+    background: #f97316;
+    color: #ffffff;
+    border-radius: 999px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* =====================
+   BENEFITS SECTION
+===================== */
+.IT-benefits-section {
+  padding: 120px 8%;
+}
+
+.benefits-left h2 {
+  font-size: 44px;
+}
+
+.benefits-underline {
+  width: 60px;
+  height: 4px;
+  background: #f97316;
+  margin: 16px 0 24px;
+}
+
+.benefits-left p {
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.benefit-block {
+  margin-bottom: 32px;
+}
+
+.benefit-block h3 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.benefit-block p {
+  color: var(--muted);
+}
+
+/* Scroll animation */
+.benefits-left{
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 700ms cubic-bezier(.2,.8,.2,1),
+              transform 700ms cubic-bezier(.2,.8,.2,1);
+              width: 100%;
+}
+
+.benefits-left.in{
+  opacity: 1;
+  transform: translateX(0);
+}
+.benefits-right{
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 750ms cubic-bezier(.2,.8,.2,1),
+              transform 750ms cubic-bezier(.2,.8,.2,1);
+}
+
+.benefits-right.in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: stagger each right block */
+.benefit-block{
+  margin-bottom: 46px;
+}
+
+.benefits-right.in .benefit-block{
+  animation: riseIn 700ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+.benefits-right.in .benefit-block:nth-child(1){ animation-delay: 0ms; }
+.benefits-right.in .benefit-block:nth-child(2){ animation-delay: 120ms; }
+.benefits-right.in .benefit-block:nth-child(3){ animation-delay: 240ms; }
+
+/* =====================
+   MOBILE (<= 768px)
+===================== */
+@media (max-width: 768px) {
+
+  /* Global spacing */
+  .hero-section,
+  .services-section,
+  .managed-network-section,
+  .network-cta-section,
+  .network-benefits-section {
+    padding: 72px 6%;
+  }
+
+  /* =====================
+     HERO
+  ===================== */
+  .hero-section {
+    min-height: auto;
+    flex-direction: column;
+    gap: 28px;
+    padding-top: 84px;
+    padding-bottom: 64px;
+  }
+
+  .hero-left {
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .hero-left h1 {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+
+  .hero-left p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .btn-orange {
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+  .hero-right {
+    width: 100%;
+  }
+
+  .hero-image-container {
+    width: 100%;
+    height: 240px;
+  }
+
+  /* Decorative shapes: keep them but smaller so they don't overflow */
+  .shape-circle {
+    width: 200px;
+    height: 200px;
+    right: -40px;
+    top: -40px;
+  }
+
+  .shape-green {
+    width: 140px;
+    height: 140px;
+    left: 45%;
+    bottom: -50px;
+  }
+
+  /* =====================
+     CTA BANNER
+  ===================== */
+  .network-cta-card {
+    grid-template-columns: 1fr;
+    border-radius: 22px;
+  }
+
+  .network-cta-illustration {
+    height: 220px;
+  }
+
+  .network-cta-right {
+    padding: 28px 20px;
+  }
+
+  .network-cta-right h2 {
+    font-size: 28px;
+  }
+
+  .network-cta-right p {
+    font-size: 16px;
+  }
+
+  .network-cta-btn {
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+}

@@ -1,0 +1,154 @@
+/* src/pages/Auth/Login.css - Fixed: Original + minimal PasswordInput eye icon */
+
+:root {
+  --bg: 0b0b0f;
+  --card: rgba(18, 18, 24, 0.92);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.65);
+  --orange: #f97316;
+  --orange2: #ea580c;
+}
+
+.auth-page {
+  min-height: calc(110vh - 70px);
+  padding: 110px 16px 60px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
+  display: grid;
+  place-items: center;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+}
+
+.auth-header {
+  margin-bottom: 14px;
+}
+
+.auth-title {
+  margin: 0;
+  color: white;
+  font-size: 26px;
+  letter-spacing: 0.2px;
+}
+
+.auth-subtitle {
+  margin: 6px 0 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.auth-alert {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 120, 120, 0.25);
+  background: rgba(255, 80, 80, 0.08);
+  color: rgba(255, 210, 210, 0.95);
+  font-size: 14px;
+}
+
+.auth-form {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.auth-field {
+  display: grid;
+  gap: 6px;
+  position: relative; /* Essential for eye positioning */
+}
+
+.auth-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.auth-input {
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.35);
+  color: white;
+  padding: 0 12px;
+  outline: none;
+  width: 100%; /* Ensures full width */
+}
+
+.auth-input:focus {
+  border-color: rgba(249, 115, 22, 0.55);
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
+}
+
+.auth-button {
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--orange), var(--orange2));
+  color: white;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  margin-top: 6px;
+  width: 100%; /* Full width like original */
+}
+
+.auth-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.auth-links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.auth-link {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.auth-link:hover {
+  color: var(--orange);
+}
+
+/* MINIMAL PasswordInput Eye Icon ONLY - No other changes */
+.auth-field button[type="button"] {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-5%);
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 2px;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-field button[type="button"] svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Space for icon when pr-10 class added via JS */
+.auth-input.pr-10 {
+  padding-right: 40px;
+}

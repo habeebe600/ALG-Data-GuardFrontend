@@ -1,23 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './styles/CTASection.css';
 
 const CTASection = () => {
+    const navigate = useNavigate();
+
   return (
-    <section className="cta-section">
-      <div className="cta-section__container">
-        <div className="cta-section__card">
-          <h2 className="cta-section__title">Engage with an Expert</h2>
-          <p className="cta-section__description">
-            At the core of everything we do is human contact — just one person talking to another. 
-            Give us a call or send an email and let's meet the future together.
+    <section className="partnersMeet">
+        <div className="partnersMeet__overlay" />
+        <div className="partnersMeet__content">
+          <h1 className="partnersMeet__title">Let’s Meet</h1>
+          <p className="partnersMeet__text">
+            For more information about working with ALG Data Guard, give us a call or send us an email.
+            We’re here to help in any way.
           </p>
-          <Link to="/contact" className="cta-section__button">
-            LET'S MEET
-          </Link>
+          <button className="partnersBtn partnersBtn--orange" onClick={() => navigate("/contact")}>
+            ENGAGE WITH AN EXPERT
+          </button>
         </div>
-      </div>
-    </section>
+      </section>
   );
 };
 

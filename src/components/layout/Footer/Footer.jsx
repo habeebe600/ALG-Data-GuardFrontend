@@ -39,10 +39,10 @@ const Footer = () => {
               <img src={logoImage} alt="ALG Data Guard" className="footer__logo-img" />
               <span className="footer__logo-text">ALG Data Guard</span>
             </Link>
-            <address className="footer__address">
+            {/*<address className="footer__address">
               <p>10225 Yonge St, Unit R226</p>
               <p>Richmond Hill, ON L4C 3B2</p>
-            </address>
+            </address>*/}
             <Link to="/contact" className="footer__contact-btn">
               CONTACT US
               <span className="footer__arrow">▶</span>
@@ -54,9 +54,9 @@ const Footer = () => {
               <a href="mailto:sales@algdataguard.com" className="footer__contact-link">
                 📧 sales@algdataguard.com
               </a>
-              <a href="tel:+1-742-688-4818" className="footer__contact-link">
+              {/*<a href="tel:+1-742-688-4818" className="footer__contact-link">
                 📞 +1-742-688-4818
-              </a>
+              </a>*/}
             </div>
           </div>
 

@@ -1,0 +1,108 @@
+/* Reuse the same variable system as ITManagedSupportServices.css */
+:root{
+  --dark-bg: #2f2f2f;
+  --text-dark: #0b2b2e;
+  --muted: #5f6f73;
+  --light-bg: #f3f7f8;
+  --shadow-card: 0 16px 40px rgba(0,0,0,0.08);
+}
+
+/* HERO background helper */
+.tr-hero-section{
+  min-height: 90vh;
+  padding: 65px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.tr-heroBg{
+  background: radial-gradient(900px 400px at 10% 15%, rgba(249,115,22,0.20) 0%, rgba(249,115,22,0.0) 60%),
+    linear-gradient(180deg, #0b2b2e 0%, #ffffff 72%);
+}
+
+/* Service label in hero (unique for this page, but matches style language) */
+.tr-serviceLabel{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+.tr-serviceIcon{
+  font-size: 18px;
+}
+
+/* Unique bullets so section looks different */
+.tr-bullets{
+  margin: 18px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+
+/* Optional: tighten service item icon */
+.tr-icon{
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+}
+
+/* NEW UNIQUE SECTION: Role chips */
+.tr-roles{
+  padding: 110px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #eef2f3 100%);
+}
+
+.tr-roles__container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tr-roles__title{
+  margin: 0 0 10px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: clamp(34px, 3vw, 54px);
+  color: var(--text-dark);
+}
+
+.tr-roles__lead{
+  margin: 0 auto 18px;
+  max-width: 70ch;
+  color: rgba(11, 43, 46, 0.78);
+  line-height: 1.85;
+  font-size: 18px;
+}
+
+.tr-chips{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.tr-chip{
+  background: #ffffff;
+  border: 1px solid rgba(11, 43, 46, 0.14);
+  box-shadow: var(--shadow-card);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 800;
+  color: #0b2b2e;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .tr-roles{ padding: 72px 6%; }
+}

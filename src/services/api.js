@@ -1,39 +1,29 @@
+// src/services/api.js
 import axios from 'axios';
 
-// Use environment variable first, then auto-detect based on environment
-const API_BASE_URL=process.env.REACT_APP_API_URL || 'http://localhost:5000'
-  
-// Create axios instance with default config
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+
 const api = axios.create({
   baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  timeout: 30000, // 30 second timeout
+  headers: { 'Content-Type': 'application/json' },
+  timeout: 30000,
 });
 
-// Request interceptor
+//  Attach JWT automatically (FIXED)
 api.interceptors.request.use(
   (config) => {
-    console.log(`📡 API Request: ${config.method?.toUpperCase()} ${config.baseURL}${config.url}`);
+    const token = localStorage.getItem('token');
+    if (token) config.headers.Authorization = `Bearer ${token}`;
     return config;
   },
-  (error) => {
-    console.error('❌ Request Error:', error);
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
-// Response interceptor for better error handling
+
+
 api.interceptors.response.use(
-  (response) => {
-    console.log('✅ API Response:', response.status, response.data);
-    return response;
-  },
-  (error) => {
-    console.error('❌ API Error:', error.response?.status, error.response?.data || error.message);
-    return Promise.reject(error);
-  }
+  (res) => res,
+  (error) => Promise.reject(error)
 );
 
 export default api;

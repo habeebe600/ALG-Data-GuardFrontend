@@ -1,7 +1,11 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect,useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/CybersecurityServices.css";
+import HeroBg from "../../assets/images/services/CyberSecurity/Cyber-Security-Hero.png"
+import CyberSecurityAStrategy from "../../assets/images/services/CyberSecurity/CyberSecurity-AStrategy.png"
 
 const CybersecurityServices = () => {
+    const navigate = useNavigate();
     const cards = [
         {
             title: "Security Audits",
@@ -27,7 +31,7 @@ const CybersecurityServices = () => {
 
     const benefitsRef = useRef(null);
     const [benefitsInView, setBenefitsInView] = useState(false);
-    
+
     useEffect(() => {
         const el = benefitsRef.current;
         if (!el) return;
@@ -46,60 +50,71 @@ const CybersecurityServices = () => {
     const cardRefs = useRef([]);
 
     useEffect(() => {
-  const els = cardRefs.current.filter(Boolean);
-  if (!els.length) return;
+        const els = cardRefs.current.filter(Boolean);
+        if (!els.length) return;
 
-  const obs = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in");
-          obs.unobserve(entry.target); // animate once
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
+        const obs = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("in");
+                        obs.unobserve(entry.target); // animate once
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
 
-  els.forEach((el) => obs.observe(el));
-  return () => obs.disconnect();
-}, []);
+        els.forEach((el) => obs.observe(el));
+        return () => obs.disconnect();
+    }, []);
 
-const ctaRef = useRef(null);
-const [ctaInView, setCtaInView] = useState(false);
+    const ctaRef = useRef(null);
+    const [ctaInView, setCtaInView] = useState(false);
 
-useEffect(() => {
-  const el = ctaRef.current;
-  if (!el) return;
+    useEffect(() => {
+        const el = ctaRef.current;
+        if (!el) return;
 
-  const obs = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        setCtaInView(true);
-        obs.unobserve(entry.target); // animate once
-      }
-    },
-    { threshold: 0.25 }
-  );
+        const obs = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setCtaInView(true);
+                    obs.unobserve(entry.target); // animate once
+                }
+            },
+            { threshold: 0.25 }
+        );
 
-  obs.observe(el);
-  return () => obs.disconnect();
-}, []);
+        obs.observe(el);
+        return () => obs.disconnect();
+    }, []);
 
     return (
         <>
             {/* HERO SECTION */}
             <section className="hero-section">
-                <div className="hero-left">
-                    <h1>
-                        Cybersecurity <br /> Services
-                    </h1>
-                    <p>
-                        Safeguard every layer of your organization with comprehensive,
-                        managed security services by<br /><span>ALG Data Guard.</span>
-                    </p>
-                    <button className="btn-green">Get in Touch</button>
-                </div>
+               <div className="hero-left">
+          <div className="dd-serviceLabel">
+            <span>CYBERSECURITY</span>
+          </div>
+
+          <h1 className="hc-hero__title" >
+            Secure systems, data, and networks.
+          </h1>
+
+          <p className="hc-hero__lead" >
+            Safeguard every layer of your organization with comprehensive, managed security services by
+ALG Data Guard.
+          </p>
+
+          <button className="btn-orange" type="button" onClick={() => navigate("/contact")}>
+            <span className="btn-text">Meet Our Experts Today</span>
+            <span className="btn-arrow" aria-hidden="true">
+              ›
+            </span>
+          </button>
+        </div>
 
                 <div className="hero-right">
                     <div className="hero-image-container">
@@ -107,7 +122,7 @@ useEffect(() => {
                         <div className="shape-green" />
                         <img
                             className="hero-img"
-                            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"
+                            src={HeroBg}
                             alt="Cybersecurity"
                         />
                     </div>
@@ -128,7 +143,7 @@ useEffect(() => {
                                 Every business has its own unique security needs and vulnerabilities.
                                 ALG Data Guard takes a strategy-first approach to IT security consulting
                                 so you can keep pace with the ever-evolving cybersecurity landscape. As{" "}
-                                <a className="sc-link">your trusted provider</a> of
+                                your trusted provider of
                                 managed cybersecurity services, we gain a deep understanding of your
                                 operations, systems, and overarching security goals.
                             </p>
@@ -139,7 +154,7 @@ useEffect(() => {
                             <div className="sc-imageCard">
                                 <img
                                     className="hero-img"
-                                    src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=80"
+                                    src={CyberSecurityAStrategy}
                                     alt="Cybersecurity"
                                 />            </div>
                         </div>
@@ -184,19 +199,20 @@ useEffect(() => {
                         <div className="cs-right">
                             <div className="cs-cards">
                                 {cards.map((c, idx) => (
-  <article
-    className="cs-card"
-    key={c.title}
-    ref={(el) => (cardRefs.current[idx] = el)}
-    style={{ animationDelay: `${idx * 120}ms` }}
-  >
-    <h3 className="cs-cardTitle">{c.title}</h3>
-    <p className="cs-cardText">{c.desc}</p>
-    <button className="cs-cardBtn" type="button">
-      Learn More
-    </button>
-  </article>
-))}
+                                    <article
+                                        className="cs-card"
+                                        key={c.title}
+                                        ref={(el) => (cardRefs.current[idx] = el)}
+                                        style={{ animationDelay: `${idx * 120}ms` }}
+                                    >
+                                        <h3 className="cs-cardTitle">{c.title}</h3>
+                                        <p className="cs-cardText">{c.desc}</p>
+                                        <button className="cs-cardBtn" type="button"
+                                            onClick={() => navigate("/contact")}>
+                                            Learn More
+                                        </button>
+                                    </article>
+                                ))}
 
                             </div>
                         </div>
@@ -206,10 +222,10 @@ useEffect(() => {
 
             {/* SECTION 4: CTA BANNER */}
             <section className="cyber-cta-section">
-<div
-    ref={ctaRef}
-    className={`cyber-cta-card cta-reveal ${ctaInView ? "in" : ""}`}
-  >                    <div className="cyber-cta-left">
+                <div
+                    ref={ctaRef}
+                    className={`cyber-cta-card cta-reveal ${ctaInView ? "in" : ""}`}
+                >                    <div className="cyber-cta-left">
                         <img
                             className="cyber-cta-illustration"
                             src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80"
@@ -228,7 +244,8 @@ useEffect(() => {
                             minimize risks, and protect your business.
                         </p>
 
-                        <button className="cyber-cta-btn" type="button">
+                        <button className="cyber-cta-btn" type="button"
+                            onClick={() => navigate("/contact")}>
                             Find My Cybersecurity Solution
                         </button>
                     </div>

@@ -1,15 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion} from 'framer-motion';
 import './styles/ServicesSection.css';
 
 // Import service icons
-import designIcon from '../../../assets/images/services/Design-and-Deployment.jpg';
-import auditIcon from '../../../assets/images/services/Network-Audit.jpg';
-import strategyIcon from '../../../assets/images/services/Business-Strategy.jpg';
-import recruiterIcon from '../../../assets/images/services/Technical-recruiter.jpg';
-import supportIcon from '../../../assets/images/services/Support-Training.jpg';
-import colocationIcon from '../../../assets/images/services/Help-finding-ideal-colocation.jpg';
+import managedservices from '../../../assets/images/services/manages-services-logo.png'
+import infrastructureServices from '../../../assets/images/services/infrastructure-services-logo.png'
+import strategyIcon from '../../../assets/images/services/Business-Strategy.png';
+import recruiterIcon from '../../../assets/images/services/Technical-recruiter.png';
 
 const ServicesSection = () => {
   const containerRef = useRef(null);
@@ -17,53 +15,18 @@ const ServicesSection = () => {
   const navigate = useNavigate();
   const services = [
     {
-      title: "Cloud IT Solutions",
-      description: "Get secure cloud backups, smooth migrations, and reliable ongoing support to keep your business connected. Maximize productivity and stay ahead with modern cloud computing.",
-      icon: designIcon,
-      link: "/services/cloud-IT-solutions",
+      title: "Managed Services",
+      description: "Proactive, ongoing IT management that keeps your systems secure, monitored, and optimized 24/7. We handle daily operations, support, and maintenance so your team can focus on core business goals.",
+      icon: managedservices,
+      link: "/services/Managed-Services",
     },
     {
-      title: "Cyber Security",
-      description: "Protect your organization with audits, compliance consulting, incident response, and layered security. Build strong defenses against evolving cyber threats.",
-      icon: designIcon,
-      link: "/services/Cybersecurity-Services",
+      title: "Infrastructure Services",
+      description: "Design, deployment, and modernization of secure, scalable IT infrastructure. From networks and data centers to cloud and colocation, we build reliable foundations that support performance and growth.",
+      icon: infrastructureServices,
+      link: "/services/Infrastructure-Services",
     },
-    /*{
-      title: "AI & Automation",
-      description: "Boost efficiency with secure AI and automation tools that reduce manual work and improve decision-making. Stay competitive and streamline operations in the digital landscape.",
-      icon: designIcon,
-      link: "/services/cloud-IT-solutions",
-    },
-    {
-      title: "IT Support Services",
-      description: "We minimize downtime with 24/7 helpdesk support and proactive device management. Rely on us for efficient, dependable IT assistance.",
-      icon: designIcon,
-      link: "/services/design-and-deployment",
-    },
-    {
-      title: "Network Solutions",
-      description: "Enjoy 24/7 network monitoring and routine assessments to identify and fix issues early. Keep your devices secure and running seamlessly.",
-      icon: auditIcon,
-      link: "/services/Network-Audit",
-    },
-    {
-      title: "Strategic IT Consulting",
-      description: "Plan, implement, and manage IT projects with expert guidance and smart procurement. Simplify your environment and support long-term success.",
-      icon: recruiterIcon,
-      link: "/services/Technical-Recruiters",
-    },*/
-    {
-      title: "Design and Deployment",
-      description: "Complete network infrastructure design and seamless deployment services tailored to your business needs",
-      icon: designIcon,
-      link: "/services/design-and-deployment",
-    },
-    {
-      title: "Network Audit",
-      description: "Comprehensive security and performance audits for your network infrastructure to ensure optimal operation",
-      icon: auditIcon,
-      link: "/services/Network-Audit",
-    },
+    
     {
       title: "Business Strategy",
       description: "Strategic IT consulting to align technology with your business goals and drive digital transformation",
@@ -76,18 +39,6 @@ const ServicesSection = () => {
       icon: recruiterIcon,
       link: "/services/Technical-Recruiters",
     },
-    {
-      title: "Support & Training",
-      description: "Ongoing technical support and comprehensive training programs to empower your team and ensure success",
-      icon: supportIcon,
-      link: "/services/Support-Training",
-    },
-    {
-      title: "Help finding Ideal Colocation",
-      description: "Expert guidance in selecting the perfect colocation facility for your infrastructure and business requirements",
-      icon: colocationIcon,
-      link: "/services/Help-finding-Ideal-Colocation",
-    }
   ];
 
   useEffect(() => {
