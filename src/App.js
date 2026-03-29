@@ -35,32 +35,37 @@ import About from './pages/About/About';
 import Partners from './pages/Partners/Partners';
 import Footer from './components/layout/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import DesignAndDeployment from './pages/Services/Design-and-Deployment'
-import BusinessStrategy from './pages/Services/Business-Strategy'
-import NetworkAudit from './pages/Services/Network-Audit'
-import HelpFindingIdealColocation from './pages/Services/Help-finding-Ideal-Colocation'
-import SupportTraining from './pages/Services/Support-Training'
-import TechnicalRecruiters from './pages/Services/Technical-Recruiters'
+import DesignAndDeployment from './pages/Services/Design-and-Deployment';
+import BusinessStrategy from './pages/Services/Business-Strategy';
+import NetworkAudit from './pages/Services/Network-Audit';
+import HelpFindingIdealColocation from './pages/Services/Help-finding-Ideal-Colocation';
+import SupportTraining from './pages/Services/Support-Training';
+import TechnicalRecruiters from './pages/Services/Technical-Recruiters';
 import CloudSolutionsPage from './pages/Services/CloudSolutionsPage';
-import CybersecurityServices from './pages/Services/CybersecurityServices'
-import ITManagedSupportServices from './pages/Services/ITManagedSupportServices'
-import ManagedNetworkSolutions from './pages/Services/ManagedNetworkSolutions'
-import StrategicITConsulting from './pages/Services/StrategicITConsulting'
-import AIAutomationServices from './pages/Services/AIAutomationServices'
-import DataCenterColocationServices from './pages/Services/DataCenterColocationServices'
-import ConfigurationServicesDeployment from './pages/Services/ConfigurationServicesDeployment'
-import ManagedServices from './pages/Services/ManagedServices'
-import InfrastructureServices from './pages/Services/InfrastructureServices'
+import CybersecurityServices from './pages/Services/CybersecurityServices';
+import ITManagedSupportServices from './pages/Services/ITManagedSupportServices';
+import ManagedNetworkSolutions from './pages/Services/ManagedNetworkSolutions';
+import StrategicITConsulting from './pages/Services/StrategicITConsulting';
+import AIAutomationServices from './pages/Services/AIAutomationServices';
+import DataCenterColocationServices from './pages/Services/DataCenterColocationServices';
+import ConfigurationServicesDeployment from './pages/Services/ConfigurationServicesDeployment';
+import ManagedServices from './pages/Services/ManagedServices';
+import InfrastructureServices from './pages/Services/InfrastructureServices';
+
+// BLOGS
+import BlogsPage from './pages/Blogs/BlogsPage';
+import BlogDetailsPage from './pages/Blogs/BlogDetailsPage';
+import AdminCreateBlog from './pages/Blogs/AdminCreateBlog';
+import AdminBlogManagement from './pages/Blogs/AdminBlogManagement';
+import AdminEditBlog from './pages/Blogs/AdminEditBlog';
 
 function App() {
-
   return (
     <Router>
       <div className="App">
         <ScrollToTop />
         <Navbar />
 
-        {/* Main content area */}
         <main className="App-main">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -69,6 +74,7 @@ function App() {
             <Route path="/verify" element={<VerifyOtp />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+
             <Route
               path="/change-password"
               element={
@@ -77,6 +83,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
             <Route
               path="/settings"
               element={
@@ -107,6 +114,10 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/Partners" element={<Partners />} />
 
+            {/* PUBLIC BLOGS */}
+            <Route path="/blogs" element={<BlogsPage />} />
+            <Route path="/blogs/:slug" element={<BlogDetailsPage />} />
+
             {/* Admin Panel */}
             <Route
               path="/admin"
@@ -118,6 +129,41 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+            {/* ADMIN BLOGS */}
+            <Route
+              path="/admin/blogs"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={['ADMIN']}>
+                    <AdminBlogManagement />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/blogs/create"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={['ADMIN']}>
+                    <AdminCreateBlog />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin/blogs/edit/:id"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={['ADMIN']}>
+                    <AdminEditBlog />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+
             {/* Knowledge Base */}
             <Route
               path="/knowledge-base"
@@ -127,6 +173,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
             <Route
               path="/knowledge-base/:id"
               element={
@@ -135,7 +182,6 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
 
             <Route
               path="/admin/knowledge-base"
@@ -147,6 +193,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
             {/* Support Ticket */}
             <Route
               path="/tickets"
@@ -185,9 +232,9 @@ function App() {
                 </ProtectedRoute>
               }
             />
-
           </Routes>
         </main>
+
         <Footer />
       </div>
     </Router>

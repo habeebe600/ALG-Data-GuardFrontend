@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { createStaffUser } from '../../services/authService';
 import { getAllUsers, setUserBlocked } from '../../services/userService';
 import '../Tickets/tickets.css';
 
-
 export default function AdminPanel() {
-  const [tab, setTab] = useState('createStaff'); // createStaff | users
+  const [tab, setTab] = useState('createStaff'); // createStaff | users | blogs
 
   const { user } = useAuth();
-const isAdmin = user?.role === 'ADMIN';
+  const isAdmin = user?.role === 'ADMIN';
 
   // create staff
   const [email, setEmail] = useState('');
@@ -57,7 +57,7 @@ const isAdmin = user?.role === 'ADMIN';
     }
   };
 
-   return (
+  return (
     <div className="t-page">
       <div className="t-container">
         <div className="t-top">
@@ -73,6 +73,7 @@ const isAdmin = user?.role === 'ADMIN';
           >
             Create staff
           </button>
+
           <button
             className={`t-tab ${tab === 'users' ? 'is-active' : ''}`}
             onClick={() => setTab('users')}
@@ -80,6 +81,15 @@ const isAdmin = user?.role === 'ADMIN';
             type="button"
           >
             Users
+          </button>
+
+          <button
+            className={`t-tab ${tab === 'blogs' ? 'is-active' : ''}`}
+            onClick={() => setTab('blogs')}
+            disabled={busy}
+            type="button"
+          >
+            Blogs
           </button>
         </div>
 
@@ -93,17 +103,36 @@ const isAdmin = user?.role === 'ADMIN';
             <form onSubmit={onCreateStaff} className="t-form" style={{ maxWidth: 520 }}>
               <div>
                 <div className="t-label">Email</div>
-                <input className="t-input" value={email} onChange={(e) => setEmail(e.target.value)} type="email" required disabled={busy} />
+                <input
+                  className="t-input"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="email"
+                  required
+                  disabled={busy}
+                />
               </div>
 
               <div>
                 <div className="t-label">Password</div>
-                <input className="t-input" value={password} onChange={(e) => setPassword(e.target.value)} type="password" required disabled={busy} />
+                <input
+                  className="t-input"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  required
+                  disabled={busy}
+                />
               </div>
 
               <div>
                 <div className="t-label">Role</div>
-                <select className="t-select" value={role} onChange={(e) => setRole(e.target.value)} disabled={busy}>
+                <select
+                  className="t-select"
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                  disabled={busy}
+                >
                   <option value="SUPPORT">SUPPORT</option>
                   <option value="ADMIN_SUPPORT">ADMIN_SUPPORT</option>
                 </select>
@@ -122,71 +151,133 @@ const isAdmin = user?.role === 'ADMIN';
               <h3 className="chat-title" style={{ margin: 0 }}>All Users</h3>
 
               <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
-                <select className="t-select" value={roleFilter} onChange={(e) => setRoleFilter(e.target.value)} disabled={busy}>
+                <select
+                  className="t-select"
+                  value={roleFilter}
+                  onChange={(e) => setRoleFilter(e.target.value)}
+                  disabled={busy}
+                >
                   <option value="">All roles</option>
                   <option value="ADMIN">ADMIN</option>
                   <option value="ADMIN_SUPPORT">ADMIN_SUPPORT</option>
                   <option value="SUPPORT">SUPPORT</option>
                   <option value="CUSTOMER">CUSTOMER</option>
                 </select>
-                <button className="t-btn" type="button" onClick={loadUsers} disabled={busy}>Refresh</button>
+
+                <button className="t-btn" type="button" onClick={loadUsers} disabled={busy}>
+                  Refresh
+                </button>
               </div>
             </div>
 
             <div className="t-list">
               {users.map((u) => (
                 <div key={u.id} className="t-ticket" style={{ cursor: 'default' }}>
-  <div className="t-ticketTop">
-    {/* Left */}
-    <div>
-      <div className="t-subject" style={{ fontSize: 16 }}>{u.email}</div>
-      <div className="t-ticketMeta">
-        Role: {u.role} | Verified: {String(u.isVerified)} | Business: {u.business?.name || '—'}
-      </div>
-    </div>
+                  <div className="t-ticketTop">
+                    <div>
+                      <div className="t-subject" style={{ fontSize: 16 }}>{u.email}</div>
+                      <div className="t-ticketMeta">
+                        Role: {u.role} | Verified: {String(u.isVerified)} | Business: {u.business?.name || '—'}
+                      </div>
+                    </div>
 
-    {/* Right (status + action) */}
-    <div className="t-badges">
-  <span className={`t-badge ${u.isBlocked ? 't-badge--closed' : 't-badge--status'}`}>
-    {u.isBlocked ? 'BLOCKED' : 'ACTIVE'}
-  </span>
+                    <div className="t-badges">
+                      <span className={`t-badge ${u.isBlocked ? 't-badge--closed' : 't-badge--status'}`}>
+                        {u.isBlocked ? 'BLOCKED' : 'ACTIVE'}
+                      </span>
 
-  {isAdmin ? (
-    <button
-      className={`t-btn ${u.isBlocked ? '' : 't-btn--danger'}`}
-      type="button"
-      disabled={
-        busy ||
-        u.id === user?.id ||         // can't block yourself
-        u.role === 'ADMIN'           // can't block any admin account
-      }
-      title={
-        u.id === user?.id
-          ? "You can't block your own account"
-          : u.role === 'ADMIN'
-            ? "You can't block an ADMIN account"
-            : ''
-      }
-      onClick={async () => {
-        setError('');
-        try {
-          await setUserBlocked(u.id, !u.isBlocked);
-          await loadUsers();
-        } catch (e) {
-          setError(e?.response?.data?.message || 'Failed to update user');
-        }
-      }}
-    >
-      {u.isBlocked ? 'Unblock' : 'Block'}
-    </button>
-  ) : null}
-</div>
-
-  </div>
-</div>
-
+                      {isAdmin ? (
+                        <button
+                          className={`t-btn ${u.isBlocked ? '' : 't-btn--danger'}`}
+                          type="button"
+                          disabled={
+                            busy ||
+                            u.id === user?.id ||
+                            u.role === 'ADMIN'
+                          }
+                          title={
+                            u.id === user?.id
+                              ? "You can't block your own account"
+                              : u.role === 'ADMIN'
+                              ? "You can't block an ADMIN account"
+                              : ''
+                          }
+                          onClick={async () => {
+                            setError('');
+                            try {
+                              await setUserBlocked(u.id, !u.isBlocked);
+                              await loadUsers();
+                            } catch (e) {
+                              setError(e?.response?.data?.message || 'Failed to update user');
+                            }
+                          }}
+                        >
+                          {u.isBlocked ? 'Unblock' : 'Block'}
+                        </button>
+                      ) : null}
+                    </div>
+                  </div>
+                </div>
               ))}
+
               {users.length === 0 ? <div className="t-alert">No users found.</div> : null}
+            </div>
+          </section>
+        ) : null}
+
+        {tab === 'blogs' ? (
+          <section className="t-card">
+            <div className="t-top" style={{ margin: 0 }}>
+              <h3 className="chat-title" style={{ margin: 0 }}>Blog Management</h3>
+            </div>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                gap: '16px',
+                marginTop: '20px',
+              }}
+            >
+              <Link
+                to="/admin/blogs"
+                style={{
+                  textDecoration: 'none',
+                  background: '#ffffff',
+                  border: '1px solid rgba(15, 23, 42, 0.08)',
+                  borderRadius: '18px',
+                  padding: '20px',
+                  boxShadow: '0 10px 24px rgba(15, 23, 42, 0.05)',
+                  color: 'inherit',
+                }}
+              >
+                <h4 style={{ margin: '0 0 8px', fontSize: '20px', color: '#111827' }}>
+                  Manage Blogs
+                </h4>
+                <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.65', color: '#4b5563' }}>
+                  View, edit, publish, archive, or delete existing blog posts.
+                </p>
+              </Link>
+
+              <Link
+                to="/admin/blogs/create"
+                style={{
+                  textDecoration: 'none',
+                  background: '#ffffff',
+                  border: '1px solid rgba(15, 23, 42, 0.08)',
+                  borderRadius: '18px',
+                  padding: '20px',
+                  boxShadow: '0 10px 24px rgba(15, 23, 42, 0.05)',
+                  color: 'inherit',
+                }}
+              >
+                <h4 style={{ margin: '0 0 8px', fontSize: '20px', color: '#111827' }}>
+                  Create Blog
+                </h4>
+                <p style={{ margin: 0, fontSize: '14px', lineHeight: '1.65', color: '#4b5563' }}>
+                  Write a new blog post and publish it to the website.
+                </p>
+              </Link>
             </div>
           </section>
         ) : null}

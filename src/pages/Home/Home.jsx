@@ -3,6 +3,7 @@ import HeroSection from '../../components/sections/Hero/HeroSection';
 import ServicesSection from '../../components/sections/Services/ServicesSection';
 import LogoShowcaseSection from '../../components/sections/LogoShowcase/LogoShowcaseSection';
 import CTASection from '../../components/sections/CTA/CTASection';
+import HomeBlogsSection from "../Blogs/HomeBlogsSection";
 import './styles/Home.css';
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <ServicesSection />
       <LogoShowcaseSection />
       <CTASection />
+      <HomeBlogsSection />
     </div>
   );
 };

@@ -50,7 +50,7 @@ export default function Register() {
               className="auth-input"
               value={businessName}
               onChange={(e) => setBusinessName(e.target.value)}
-              placeholder="Enter you business name"
+              placeholder="Enter your business name"
               required
             />
           </div>
