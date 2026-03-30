@@ -1,7 +1,8 @@
 .blog-details-page {
   min-height: 100vh;
-  background: #f8fafc;
-  padding: 32px 16px 64px;
+  background: radial-gradient(900px 400px at 10% 15%, rgba(249, 115, 22, 0.20) 0%, rgba(249, 115, 22, 0.0) 60%),
+    linear-gradient(180deg, #000000 0%, #ffffff 72%);
+  padding: 120px 16px 64px;
 }
 
 .blog-details-shell {
@@ -14,12 +15,12 @@
   flex-wrap: wrap;
   gap: 8px;
   font-size: 14px;
-  color: #64748b;
+  color: #ffffff;
   margin-bottom: 24px;
 }
 
 .blog-details-breadcrumb a {
-  color: #0f766e;
+  color: #ffffff;
   text-decoration: none;
 }
 
