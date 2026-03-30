@@ -29,7 +29,11 @@ export default function BlogsPage() {
 
   const totalPages = Math.max(1, Math.ceil(total / limit));
 
-  const fetchBlogs = async (pageNumber = 1, activeFilters = filters) => {
+  const fetchBlogs = async (
+    pageNumber = 1,
+    activeSearch = filters.search,
+    activeCategory = filters.category
+  ) => {
     try {
       setLoading(true);
       setErrorMessage("");
@@ -40,8 +44,8 @@ export default function BlogsPage() {
         limit,
       };
 
-      if (activeFilters.search) params.search = activeFilters.search;
-      if (activeFilters.category) params.category = activeFilters.category;
+      if (activeSearch) params.search = activeSearch;
+      if (activeCategory) params.category = activeCategory;
 
       const res = await api.get("/blogs", { params });
 
@@ -49,6 +53,7 @@ export default function BlogsPage() {
       setTotal(res.data?.total || 0);
       setPage(res.data?.page || pageNumber);
     } catch (error) {
+      console.error("Blogs fetch error:", error);
       setErrorMessage(
         error.response?.data?.message || "Failed to fetch blogs"
       );
@@ -58,7 +63,8 @@ export default function BlogsPage() {
   };
 
   useEffect(() => {
-    fetchBlogs(1, filters);
+    fetchBlogs(1, filters.search, filters.category);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters.category]);
 
   const categories = useMemo(() => {
@@ -76,18 +82,19 @@ export default function BlogsPage() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
 
-    const updatedFilters = {
-      ...filters,
-      search: searchInput.trim(),
-    };
+    const updatedSearch = searchInput.trim();
 
-    setFilters(updatedFilters);
-    fetchBlogs(1, updatedFilters);
+    setFilters((prev) => ({
+      ...prev,
+      search: updatedSearch,
+    }));
+
+    fetchBlogs(1, updatedSearch, filters.category);
   };
 
   const handlePageChange = (nextPage) => {
     if (nextPage < 1 || nextPage > totalPages) return;
-    fetchBlogs(nextPage, filters);
+    fetchBlogs(nextPage, filters.search, filters.category);
   };
 
   return (
@@ -128,15 +135,15 @@ export default function BlogsPage() {
           </div>
         </div>
 
-       {loading ? (
-  <div className="blogs-state">Loading blogs...</div>
-) : errorMessage ? (
-  <div className="blogs-state error">{errorMessage}</div>
-) : blogs.length === 0 ? (
-  <div className="blogs-state empty">
-    No blogs have been published yet.
-  </div>
-) : (
+        {loading ? (
+          <div className="blogs-state">Loading blogs...</div>
+        ) : errorMessage ? (
+          <div className="blogs-state error">{errorMessage}</div>
+        ) : blogs.length === 0 ? (
+          <div className="blogs-state empty">
+            No blogs have been published yet.
+          </div>
+        ) : (
           <>
             <div className="blogs-grid">
               {blogs.map((blog) => (

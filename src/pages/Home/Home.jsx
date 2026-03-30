@@ -12,8 +12,8 @@ const Home = () => {
       <HeroSection />
       <ServicesSection />
       <LogoShowcaseSection />
-      <CTASection />
       <HomeBlogsSection />
+      <CTASection />
     </div>
   );
 };

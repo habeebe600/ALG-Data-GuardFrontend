@@ -1,7 +1,7 @@
 .admin-manage-page {
   min-height: 100vh;
   background: #f5f7fb;
-  padding: 32px 16px;
+  padding: 100px 16px;
 }
 
 .admin-manage-shell {
@@ -86,7 +86,7 @@
 
 .toolbar-search button {
   border: none;
-  background: #0f766e;
+  background: #f97316;
   color: #ffffff;
   padding: 12px 16px;
   border-radius: 12px;
