@@ -168,7 +168,7 @@ font-size: 1.14rem;
   padding: 18px;
   box-shadow: 0 22px 55px rgba(0,0,0,0.10);
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
 }
 

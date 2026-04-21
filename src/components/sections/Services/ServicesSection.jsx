@@ -6,8 +6,8 @@ import './styles/ServicesSection.css';
 // Import service icons
 import managedservices from '../../../assets/images/services/manages-services-logo.png'
 import infrastructureServices from '../../../assets/images/services/infrastructure-services-logo.png'
-import strategyIcon from '../../../assets/images/services/Business-Strategy.png';
-import recruiterIcon from '../../../assets/images/services/Technical-recruiter.png';
+import strategyIcon from '../../../assets/images/services/ITConsultingProfessionalServices.png';
+import recruiterIcon from '../../../assets/images/services/talent services.png';
 
 const ServicesSection = () => {
   const containerRef = useRef(null);
@@ -28,16 +28,16 @@ const ServicesSection = () => {
     },
     
     {
-      title: "Business Strategy",
-      description: "Strategic IT consulting to align technology with your business goals and drive digital transformation",
+      title: "IT Consulting & Professional Services",
+      description: "Empowering businesses with expert IT solutions and professional services to drive innovation, efficiency, and growth.",
       icon: strategyIcon,
-      link: "/services/Business-Strategy",
+      link: "/services/IT-Consulting-Professional-Services",
     },
     {
-      title: "Technical Recruiters",
-      description: "Find and hire top IT talent for your specialized technology needs with our expert recruitment services",
+      title: "Talent Services",
+      description: "Connecting businesses with top talent to build strong, skilled, and future ready teams.",
       icon: recruiterIcon,
-      link: "/services/Technical-Recruiters",
+      link: "/services/Talent-Services ",
     },
   ];
 
@@ -64,7 +64,7 @@ const ServicesSection = () => {
   }, []);
 
   // Calculate horizontal translation
-  const maxScroll = (services.length * 440) - window.innerWidth + 200;
+  const maxScroll = (services.length * 500) - window.innerWidth + 200;
   const translateX = -scrollProgress * maxScroll;
 
   return (

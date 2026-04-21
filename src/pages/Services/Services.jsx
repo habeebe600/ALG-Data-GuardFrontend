@@ -18,13 +18,19 @@ import supportIcon from "../../assets/images/services/Support-Training.jpg";
 import colocationIcon from "../../assets/images/services/Help-finding-ideal-colocation.jpg";
 import DataCenterColocationServices from "../../assets/images/services/Data-Center-Colocation-Services.png";
 import ConfigurationServicesDeployment from "../../assets/images/services/Configuration-Services-Deployment.png"
+import cloudConsulting from "../../assets/images/services/cloud consulting.png"
+import CybersecurityConsulting from "../../assets/images/services/Cybersecurity Consulting.png"
+import InfrastructureConsulting from "../../assets/images/services/Infrastructure Consulting.png"
+import DigitalTransformation from "../../assets/images/services/Digital Transformation.png"
+import ImplementationServices from "../../assets/images/services/Implementation Services.png"
 
 const Services = () => {
   const tabs = useMemo(
     () => [
       { key: "managed", label: "MANAGED SERVICES" },
       { key: "infra", label: "INFRASTRUCTURE SERVICES" },
-      { key: "other", label: "OTHER SERVICES" },
+      { key: "ITConsulting&Professional", label: "IT CONSULTING & PROFESSIONAL SERVICES" },
+      { key: "talent", label: "Talent SERVICES" },
     ],
     []
   );
@@ -59,6 +65,14 @@ const Services = () => {
         icon: auditIcon,
         link: "/services/Network-Audit",
         linkLabel: "Explore Network Audit",
+      },
+      {
+        category: "infra",
+        title: "Network Solutions",
+        description: "Enjoy 24/7 network monitoring and routine assessments to identify and fix issues early. Keep your devices secure and running seamlessly.",
+        icon: NetworkSolutions,
+        link: "/services/Managed-Network-Solutions",
+        linkLabel: "Explore Network Solutions",
       },
       {
         category: "infra",
@@ -107,6 +121,25 @@ const Services = () => {
       },
       {
         category: "managed",
+        title: "IT Support Services",
+        description: "We minimize downtime with 24/7 helpdesk support and proactive device management. Rely on us for efficient, dependable IT assistance.",
+        icon: ITSupportService,
+        link: "/services/IT-Managed-Support-Services",
+        linkLabel: "Explore IT Support Services",
+      },
+      {
+        category: "managed",
+        title: "Support & Training",
+        description:
+        "Ongoing technical support and comprehensive training programs to empower your team and ensure success",
+        icon: supportIcon,
+        link: "/services/Support-Training",
+        linkLabel: "Explore Support & Training",
+      },
+      
+      // IT Consulting & Professional SERVICES
+      {
+        category: "ITConsulting&Professional",
         title: "Strategic IT Consulting",
       description: "Plan, implement, and manage IT projects with expert guidance and smart procurement. Simplify your environment and support long-term success.",
         icon: StrategicITConsulting,
@@ -114,43 +147,63 @@ const Services = () => {
         linkLabel: "Explore Strategic IT Consulting",
       },
       {
-        category: "managed",
-        title: "Network Solutions",
-      description: "Enjoy 24/7 network monitoring and routine assessments to identify and fix issues early. Keep your devices secure and running seamlessly.",
-        icon: NetworkSolutions,
-      link: "/services/Managed-Network-Solutions",
-        linkLabel: "Explore Network Solutions",
-      },
-      {
-        category: "managed",
-        title: "IT Support Services",
-      description: "We minimize downtime with 24/7 helpdesk support and proactive device management. Rely on us for efficient, dependable IT assistance.",
-        icon: ITSupportService,
-      link: "/services/IT-Managed-Support-Services",
-        linkLabel: "Explore IT Support Services",
-      },
-      {
-        category: "managed",
-        title: "Support & Training",
-        description:
-          "Ongoing technical support and comprehensive training programs to empower your team and ensure success",
-        icon: supportIcon,
-        link: "/services/Support-Training",
-        linkLabel: "Explore Support & Training",
-      },
-
-      // OTHER SERVICES
-      {
-        category: "other",
+        category: "ITConsulting&Professional",
         title: "Business Strategy",
         description:
-          "Strategic IT consulting to align technology with your business goals and drive digital transformation",
+        "Strategic IT consulting to align technology with your business goals and drive digital transformation",
         icon: strategyIcon,
         link: "/services/Business-Strategy",
         linkLabel: "Explore Business Strategy",
       },
       {
-        category: "other",
+        category: "ITConsulting&Professional",
+        title: "Cloud Consulting",
+        description:
+        "Cloud strategy, migration, and support built around your business.",
+        icon: cloudConsulting,
+        link: "/services/Cloud-Consulting",
+        linkLabel: "Explore Cloud Consulting",
+      },
+      {
+        category: "ITConsulting&Professional",
+        title: "Cybersecurity Consulting",
+        description:
+        "Protect systems, reduce risk, and strengthen your security posture.",
+        icon: CybersecurityConsulting,
+        link: "/services/Cybersecurity-Consulting",
+        linkLabel: "Explore Cybersecurity Consulting",
+      },
+      {
+        category: "ITConsulting&Professional",
+        title: "Infrastructure Consulting",
+        description:
+        "Build infrastructure that is easier to run, scale, and recover.",
+        icon: InfrastructureConsulting,
+        link: "/services/Infrastructure-Consulting",
+        linkLabel: "Explore Infrastructure Consulting",
+      },
+      {
+        category: "ITConsulting&Professional",
+        title: "Digital Transformation",
+        description:
+        "Modernize the way your business works, delivers, and grows.",
+        icon: DigitalTransformation,
+        link: "/services/Digital-Transformation",
+        linkLabel: "Explore Digital Transformation",
+      },
+      {
+        category: "ITConsulting&Professional",
+        title: "Implementation Services",
+        description:
+        "Deliver new systems with less risk and more control.",
+        icon: ImplementationServices,
+        link: "/services/Implementation-Services",
+        linkLabel: "Explore Implementation Services",
+      },
+
+      // TALENT SERVICES
+      {
+        category: "talent",
         title: "Technical Recruiters",
         description:
           "Find and hire top IT talent for your specialized technology needs with our expert recruitment services",
