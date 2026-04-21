@@ -49,8 +49,16 @@ import StrategicITConsulting from './pages/Services/StrategicITConsulting';
 import AIAutomationServices from './pages/Services/AIAutomationServices';
 import DataCenterColocationServices from './pages/Services/DataCenterColocationServices';
 import ConfigurationServicesDeployment from './pages/Services/ConfigurationServicesDeployment';
+import CloudConsulting from './pages/Services/CloudConsultingPage';
+import CybersecurityConsulting from './pages/Services/CybersecurityConsultingPage';
+import InfrastructureConsulting from './pages/Services/InfrastructureConsultingPage';
+import DigitalTransformation from './pages/Services/DigitalTransformationPage';
+import ImplementationServices from './pages/Services/ImplementationServicesPage';
 import ManagedServices from './pages/Services/ManagedServices';
 import InfrastructureServices from './pages/Services/InfrastructureServices';
+import ITConsultingProfessionalServices from './pages/Services/ITConsultingProfessionalServices';
+import TalentServices  from './pages/Services/TalentServices';
+
 
 // BLOGS
 import BlogsPage from './pages/Blogs/BlogsPage';
@@ -108,8 +116,15 @@ function App() {
             <Route path="/services/AI-Automation-Services" element={<AIAutomationServices />} />
             <Route path="/services/Data-Center-Colocation-Services" element={<DataCenterColocationServices />} />
             <Route path="/services/Configuration-Services-Deployment" element={<ConfigurationServicesDeployment />} />
+            <Route path="/services/Cloud-Consulting" element={<CloudConsulting />} />
+            <Route path="/services/Cybersecurity-Consulting" element={<CybersecurityConsulting />} />
+            <Route path="/services/Infrastructure-Consulting" element={<InfrastructureConsulting />} />
+            <Route path="/services/Digital-Transformation" element={<DigitalTransformation />} />
+            <Route path="/services/Implementation-Services" element={<ImplementationServices />} />
             <Route path="/services/Managed-Services" element={<ManagedServices />} />
             <Route path="/services/Infrastructure-Services" element={<InfrastructureServices />} />
+            <Route path="/services/IT-Consulting-Professional-Services" element={<ITConsultingProfessionalServices />} />
+            <Route path="/services/Talent-Services" element={<TalentServices  />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/About" element={<About />} />
             <Route path="/Partners" element={<Partners />} />

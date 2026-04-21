@@ -32,6 +32,7 @@ import logoIngramMicro from "../../assets/images/partners/ingram-micro-logo.png"
 import logoTDSynnex from "../../assets/images/partners/td-synnex-logo.png";
 import logosophosMsp from "../../assets/images/partners/Sophos MSP Partner.png"
 import logosophosCloud from "../../assets/images/partners/Sophos Cloud Security.png"
+import logoAlliedTelesis from "../../assets/images/partners/Allied Telesis.png"
 
 
 const Partners = () => {
@@ -67,6 +68,7 @@ const Partners = () => {
     { name: "TD synnex", logo: logoTDSynnex},
     { name: "Sophos MSP Partner", logo: logosophosMsp},
     { name: "Sophos Cloud Security", logo: logosophosCloud},
+    { name: "Allied Telesis", logo: logoAlliedTelesis},
     
   ];
 

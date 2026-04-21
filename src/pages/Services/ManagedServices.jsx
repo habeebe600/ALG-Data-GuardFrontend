@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/ManagedServices.css";
-import heroPerson from "../../assets/images/services/sample-pic.jpg";
+import heroPerson from "../../assets/images/services/Managed services hero0.jpg";
 import cardIcon1 from "../../assets/images/services/managed-services/card1.png";
 import cardIcon2 from "../../assets/images/services/managed-services/card2.png";
 import cardIcon3 from "../../assets/images/services/managed-services/card3.png";
@@ -66,14 +66,6 @@ const suiteCards = [
   { title: "Cyber Security", 
       text: "Protect your organization with audits, compliance consulting, incident response, and layered security. Build strong defenses against evolving cyber threats.",
     to: "/services/Cybersecurity-Services" },
-
-  { title: "Strategic IT Consulting", 
-      text: "Plan, implement, and manage IT projects with expert guidance and smart procurement. Simplify your environment and support long-term success.",
-    to: "/services/Strategic-IT-Consulting" },
-
-  { title: "Network Solutions", 
-      text: "Enjoy 24/7 network monitoring and routine assessments to identify and fix issues early. Keep your devices secure and running seamlessly.",
-    to: "/services/Managed-Network-Solutions" },
 
   { title: "IT Support Services", 
     text: "We minimize downtime with 24/7 helpdesk support and proactive device management. Rely on us for efficient, dependable IT assistance.", 

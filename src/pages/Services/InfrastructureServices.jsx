@@ -6,6 +6,7 @@ import "./styles/ManagedServices.css";
 import cardIcon1 from "../../assets/images/services/infrastructure-services/card1.png";
 import cardIcon2 from "../../assets/images/services/infrastructure-services/card2.png";
 import cardIcon3 from "../../assets/images/services/infrastructure-services/card3.png";
+import ongoingimg from "../../assets/images/services/infra services ongoing.jpg"
 
 const InfrastructureServices = () => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const InfrastructureServices = () => {
       iconImg: cardIcon1,
       iconAlt: "Infrastructure planning",
       text:
-        "Build an infrastructure foundation that supports growth—designed for performance, reliability, and long-term scalability.",
+        "Build an infrastructure foundation that supports growth designed for performance, reliability, and long term scalability.",
     },
     {
       iconImg: cardIcon2,
@@ -49,15 +50,15 @@ const InfrastructureServices = () => {
       iconImg: cardIcon3,
       iconAlt: "Security and resilience",
       text:
-        "Improve resilience with stronger network design, segmentation, and backup-minded planning across your environment.",
+        "Improve resilience with stronger network design, segmentation, and backup minded planning across your environment.",
     },
   ];
 
   const workCards = [
     {
-      title: "Project-Based Infrastructure",
+      title: "Project Based Infrastructure",
       text:
-        "Ideal for upgrades, refreshes, migrations, and deployments—delivered with clear timelines, milestones, and documentation.",
+        "Ideal for upgrades, refreshes, migrations, and deployments delivered with clear timelines, milestones, and documentation.",
       img:
         "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
       alt: "Project based infrastructure work",
@@ -67,7 +68,7 @@ const InfrastructureServices = () => {
       text:
         "Continuous monitoring and operational support to keep networks, servers, and connectivity stable as your business evolves.",
       img:
-        "https://images.unsplash.com/photo-1551703599-6b3e8379aa8f?auto=format&fit=crop&w=1600&q=80",
+        ongoingimg,
       alt: "Ongoing infrastructure support",
     },
   ];
@@ -76,20 +77,26 @@ const InfrastructureServices = () => {
     {
       title: "Design & Deployment",
       text:
-        "Plan and deploy infrastructure upgrades with minimal disruption—switches, Wi‑Fi, routing, and core network services.",
-      to: "/services/design-and-deployment",
+        "Plan and deploy infrastructure upgrades with minimal disruption switches, Wi‑Fi, routing, and core network services.",
+      to: "/services/design and deployment",
     },
     {
       title: "Configuration Services Deployment",
       text:
-          "Deploy new technology confidently with consistent configuration, security-first policies, and rollout support. Reduce setup time, prevent misconfigurations, and deliver a smoother experience for end users.",
-      to: "/services/Configuration-Services-Deployment",
+          "Deploy new technology confidently with consistent configuration, security first policies, and rollout support. Reduce setup time, prevent misconfigurations, and deliver a smoother experience for end users.",
+      to: "/services/Configuration Services Deployment",
     },
     {
       title: "Network Audit",
       text:
           "Comprehensive security and performance audits for your network infrastructure to ensure optimal operation",
-      to: "/services/Network-Audit",
+      to: "/services/Network Audit",
+    },
+    {
+      title: "Network Solutions",
+      text:
+          "Enjoy 24/7 network monitoring and routine assessments to identify and fix issues early. Keep your devices secure and running seamlessly.",
+      to: "/services/Managed-Network-Solutions",
     },
     {
       title: "Data Center Colocation",
@@ -200,7 +207,7 @@ const InfrastructureServices = () => {
           <header className="ms-suite__head">
             <h2 className="ms-suite__title">Explore Our Infrastructure Services</h2>
             <p className="ms-suite__sub">
-              From network design to audits and colocation guidance—get the building blocks that keep IT reliable.
+              From network design to audits and colocation guidance get the building blocks that keep IT reliable.
             </p>
           </header>
 
@@ -232,7 +239,7 @@ const InfrastructureServices = () => {
               </h2>
 
               <p className="ms-greenCta__text">
-                Get expert guidance on design, deployment, and ongoing operations—so your infrastructure stays fast,
+                Get expert guidance on design, deployment, and ongoing operations so your infrastructure stays fast,
                 secure, and resilient.
               </p>
 

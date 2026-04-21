@@ -12,7 +12,8 @@ const DropdownMenu = ({ title, items }) => {
     ? [
         { heading: "Managed Services", list: items.managedServices || [] },
         { heading: "Infrastructure Services", list: items.infrastructureServices || [] },
-        { heading: "Other Services", list: items.otherServices || [] },
+        { heading: "IT Consulting & Professional Services", list: items.ITConsultingAndProfessionalServices || [] },
+        { heading: "Talent Services", list: items.TalentServices || [] },
       ]
     : [{ heading: null, list: items || [] }];
 
