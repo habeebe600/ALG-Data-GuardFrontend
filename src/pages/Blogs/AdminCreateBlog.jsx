@@ -135,6 +135,13 @@ export default function AdminCreateBlog() {
                     placeholder="https://example.com/cover.jpg"
                   />
                 </div>
+                <div className="form-group">
+                  <label>Type</label>
+                  <select name="type" value={formData.type} onChange={handleChange}>
+                    <option value="Article">Article</option>
+                    <option value="Video">Video</option>
+                  </select>
+                </div>
               </div>
 
               <div className="form-group">
@@ -282,7 +289,6 @@ export default function AdminCreateBlog() {
                     <span>No tags yet</span>
                   )}
                 </div>
-
                 <div className="preview-footer">
                   <span>{formData.authorName || "Author name"}</span>
                   {formData.featured ? <strong>Featured</strong> : null}

@@ -13,6 +13,12 @@ export const getBlogs = async (params = {}) => {
   return res.data;
 };
 
+// GET MY BLOGS (member's own blogs) — filters by authorId on backend via query
+export const getMyBlogs = async (params = {}) => {
+  const res = await api.get("/blogs/my", { params });
+  return res.data;
+};
+
 // GET BY ID
 export const getBlogById = async (id) => {
   const res = await api.get(`/blogs/id/${id}`);

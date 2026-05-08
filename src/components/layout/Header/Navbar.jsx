@@ -38,7 +38,7 @@ const Navbar = () => {
       { label: "IT Support Services", href: "/services/IT-Managed-Support-Services" }, // your new page
       { label: "Support & Training", href: "/services/Support-Training" }, // your new page
     ],
-    
+
     infrastructureServices: [
       { label: "Design and Deployment", href: "/services/Design-and-Deployment" },
       { label: "Configuration Services Deployment", href: "/services/Configuration-Services-Deployment" },
@@ -108,6 +108,9 @@ const Navbar = () => {
           </Link>
           <Link to="/About" className="navbar__link">
             About
+          </Link>
+          <Link to="/blogs" className="navbar__link">
+            Blogs & Resources
           </Link>
 
         </div>
@@ -186,6 +189,11 @@ const Navbar = () => {
                       <Link to="/admin">Admin Panel</Link>
                     )}
 
+                    {/* Member blog dashboard link */}
+                    {user.role === 'MEMBER' && (
+                      <Link to="/member/blogs">Manage My Blogs</Link>
+                    )}
+
                     <Link
                       to={user.role === 'ADMIN' ? '/admin/knowledge-base' : '/knowledge-base'}
                     >
@@ -193,7 +201,6 @@ const Navbar = () => {
                     </Link>
 
                     <Link to="/settings">Settings</Link>
-
                     <Link to="/tickets">Support Tickets</Link>
 
                     <button onClick={handleLogout} className="logout-btn">

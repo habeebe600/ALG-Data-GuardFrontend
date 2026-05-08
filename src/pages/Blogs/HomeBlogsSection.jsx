@@ -12,11 +12,16 @@ function formatDate(dateValue) {
   });
 }
 
-function getReadTime(excerpt = "", title = "") {
-  const text = `${title} ${excerpt}`.trim();
-  const words = text ? text.split(/\s+/).length : 0;
-  const mins = Math.max(1, Math.ceil(words / 120));
-  return `${mins} min`;
+function getReadTime(content = "", excerpt = "", title = "") {
+  const fullText = `${title} ${excerpt} ${content}`.trim();
+  const wordCount = fullText ? fullText.split(/\s+/).filter(Boolean).length : 0;
+  const minutes = Math.max(1, Math.ceil(wordCount / 200));
+  return `${minutes} min read`;
+}
+
+function getBlogType(blog) {
+  if (blog.type) return blog.type;
+  return "Article";
 }
 
 export default function HomeBlogsSection() {
@@ -67,11 +72,7 @@ export default function HomeBlogsSection() {
     <section className="home-blogs-section">
       <div className="home-blogs-container">
         <aside className="home-blogs-sidebar">
-         
-
-          <h2 className="home-blogs-sidebar-title">
-            Industries we solve for:
-          </h2>
+          <h2 className="home-blogs-sidebar-title">Industries we solve for:</h2>
 
           {loading ? (
             <div className="home-blogs-sidebar-loading">Loading categories...</div>
@@ -110,60 +111,73 @@ export default function HomeBlogsSection() {
           ) : (
             <>
               <div className="home-blogs-grid">
-                {filteredBlogs.map((blog) => (
-                  <article key={blog.id} className="home-blog-card">
-                    <Link
-                      to={`/blogs/${blog.slug}`}
-                      className="home-blog-image-link"
-                    >
-                      {blog.coverImage ? (
-                        <img
-                          src={blog.coverImage}
-                          alt={blog.title}
-                          className="home-blog-image"
-                        />
-                      ) : (
-                        <div className="home-blog-image placeholder">
-                          No image
-                        </div>
-                      )}
-                    </Link>
+                {filteredBlogs.map((blog) => {
+                  const blogType = getBlogType(blog);
+                  const isVideo = blogType === "Video";
 
-                    <div className="home-blog-body">
-                      <p className="home-blog-date">
-                        {formatDate(blog.publishedAt || blog.createdAt)}
-                      </p>
-
-                      <p className="home-blog-category-link">
-                        {blog.category || "Services"}
-                      </p>
-
-                      <h3>
-                        <Link to={`/blogs/${blog.slug}`}>{blog.title}</Link>
-                      </h3>
-
-                      <div className="home-blog-meta-line">
-                        <span>{blog.featured ? "Video" : "Article"}</span>
-                        <span>|</span>
-                        <span>{getReadTime(blog.excerpt, blog.title)}</span>
-                      </div>
-
+                  return (
+                    <article key={blog.id} className="home-blog-card">
                       <Link
                         to={`/blogs/${blog.slug}`}
-                        className="home-blog-preview-link"
+                        className="home-blog-image-link"
                       >
-                        Show preview <span>+</span>
+                        {blog.coverImage ? (
+                          <img
+                            src={blog.coverImage}
+                            alt={blog.title}
+                            className="home-blog-image"
+                          />
+                        ) : (
+                          <div className="home-blog-image placeholder">
+                            No image
+                          </div>
+                        )}
                       </Link>
 
-                      <div className="home-blog-divider" />
+                      <div className="home-blog-body">
+                        <p className="home-blog-date">
+                          {formatDate(blog.publishedAt || blog.createdAt)}
+                        </p>
 
-                      <div className="home-blog-source">
-                        <span>From</span>
-                        <span className="home-blog-source-mark">ALG Data Guard</span>
+                        <p className="home-blog-category-link">
+                          {blog.category || "Services"}
+                        </p>
+
+                        <h3>
+                          <Link to={`/blogs/${blog.slug}`}>{blog.title}</Link>
+                        </h3>
+
+                        <div className="home-blog-meta-line">
+                          <span>{blogType}</span>
+                          <span>|</span>
+                          <span>
+                            {isVideo
+                              ? blog.readTime
+                                ? `${blog.readTime} min watch`
+                                : "Watch"
+                              : getReadTime(blog.content, blog.excerpt, blog.title)}
+                          </span>
+                        </div>
+
+                        <Link
+                          to={`/blogs/${blog.slug}`}
+                          className="home-blog-preview-link"
+                        >
+                          Show preview <span>+</span>
+                        </Link>
+
+                        <div className="home-blog-divider" />
+
+                        <div className="home-blog-source">
+                          <span>From</span>
+                          <span className="home-blog-source-mark">
+                            ALG Data Guard
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  );
+                })}
               </div>
 
               <div className="home-blogs-cta-wrap">

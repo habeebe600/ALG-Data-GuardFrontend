@@ -197,6 +197,13 @@ export default function AdminEditBlog() {
                                         onChange={handleChange}
                                     />
                                 </div>
+                                <div className="form-group">
+                                    <label>Type</label>
+                                    <select name="type" value={formData.type} onChange={handleChange}>
+                                        <option value="Article">Article</option>
+                                        <option value="Video">Video</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div className="edit-group">
