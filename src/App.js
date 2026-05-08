@@ -57,7 +57,7 @@ import ImplementationServices from './pages/Services/ImplementationServicesPage'
 import ManagedServices from './pages/Services/ManagedServices';
 import InfrastructureServices from './pages/Services/InfrastructureServices';
 import ITConsultingProfessionalServices from './pages/Services/ITConsultingProfessionalServices';
-import TalentServices  from './pages/Services/TalentServices';
+import TalentServices from './pages/Services/TalentServices';
 
 
 // BLOGS
@@ -66,6 +66,9 @@ import BlogDetailsPage from './pages/Blogs/BlogDetailsPage';
 import AdminCreateBlog from './pages/Blogs/AdminCreateBlog';
 import AdminBlogManagement from './pages/Blogs/AdminBlogManagement';
 import AdminEditBlog from './pages/Blogs/AdminEditBlog';
+import MemberBlogDashboard from './pages/Blogs/MemberBlogDashboard';
+import MemberCreateBlog from './pages/Blogs/MemberCreateBlog';
+import MemberEditBlog from './pages/Blogs/MemberEditBlog';
 
 function App() {
   return (
@@ -124,14 +127,11 @@ function App() {
             <Route path="/services/Managed-Services" element={<ManagedServices />} />
             <Route path="/services/Infrastructure-Services" element={<InfrastructureServices />} />
             <Route path="/services/IT-Consulting-Professional-Services" element={<ITConsultingProfessionalServices />} />
-            <Route path="/services/Talent-Services" element={<TalentServices  />} />
+            <Route path="/services/Talent-Services" element={<TalentServices />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/About" element={<About />} />
             <Route path="/Partners" element={<Partners />} />
 
-            {/* PUBLIC BLOGS */}
-            <Route path="/blogs" element={<BlogsPage />} />
-            <Route path="/blogs/:slug" element={<BlogDetailsPage />} />
 
             {/* Admin Panel */}
             <Route
@@ -178,6 +178,40 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            {/* MEMBER BLOGS */}
+            <Route
+              path="/member/blogs"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={["MEMBER"]}>
+                    <MemberBlogDashboard />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/member/blogs/create"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={["MEMBER"]}>
+                    <MemberCreateBlog />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/member/blogs/edit/:id"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={["MEMBER"]}>
+                    <MemberEditBlog />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+              {/* PUBLIC BLOGS */}
+              <Route path="/blogs" element={<BlogsPage />} />
+              <Route path="/blogs/:slug" element={<BlogDetailsPage />} />
 
             {/* Knowledge Base */}
             <Route
