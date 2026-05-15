@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Header/Navbar';
 import './App.css';
 
+// .ca REDIRECT
+import { useEffect } from 'react';
+import { handleGeoRedirect } from './utils/geoRedirect';
+
 // AUTH
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
@@ -71,6 +75,9 @@ import MemberCreateBlog from './pages/Blogs/MemberCreateBlog';
 import MemberEditBlog from './pages/Blogs/MemberEditBlog';
 
 function App() {
+  useEffect(() => {
+  handleGeoRedirect();
+}, []);
   return (
     <Router>
       <div className="App">
