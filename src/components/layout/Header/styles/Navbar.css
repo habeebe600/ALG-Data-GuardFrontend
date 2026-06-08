@@ -336,3 +336,19 @@
   font-weight: 600;
   color: red;
 }
+
+.navbar__user-dropdown .logout-btn {
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.navbar__user-dropdown .logout-btn:hover {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.navbar__user-dropdown a + a,
+.navbar__user-dropdown a + button,
+.navbar__user-dropdown button + a {
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}

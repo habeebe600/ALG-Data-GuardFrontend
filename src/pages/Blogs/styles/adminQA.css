@@ -1,0 +1,253 @@
+.admin-blog-management {
+  min-height: 100vh;
+  background: #f5f7fb;
+  padding: 110px 16px 48px;
+}
+
+.admin-blog-management__container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.admin-blog-management__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.admin-blog-management__eyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0f766e;
+  margin-bottom: 8px;
+}
+
+.admin-blog-management__header h1 {
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.1;
+  color: #111827;
+  margin: 0 0 10px;
+}
+
+.admin-blog-management__description {
+  color: #4b5563;
+  font-size: 16px;
+  max-width: 760px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.admin-blog-management__success,
+.admin-blog-management__error {
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.admin-blog-management__success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.admin-blog-management__error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.admin-blog-management__empty {
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 18px;
+  padding: 48px 20px;
+  text-align: center;
+  color: #64748b;
+  font-size: 15px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.admin-blog-management__btn {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111827;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-blog-management__btn:hover {
+  transform: translateY(-1px);
+}
+
+.admin-blog-management__btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.admin-blog-management__btn--primary {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.admin-qa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-qa-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.admin-qa-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.admin-qa-card__blog {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #0f766e;
+  margin-bottom: 8px;
+}
+
+.admin-qa-card__top h3 {
+  font-size: 20px;
+  color: #0f172a;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.admin-qa-card__meta {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.admin-qa-card__textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 14px;
+  min-height: 120px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #0f172a;
+  background: #ffffff;
+  outline: none;
+  resize: vertical;
+}
+
+.admin-qa-card__textarea:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+}
+
+.admin-qa-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.admin-qa-card__pin {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  height: fit-content;
+  white-space: nowrap;
+}
+
+.admin-qa-card__pin:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.admin-qa-card__answers {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.admin-qa-card__answer {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.admin-qa-card__answer p {
+  margin: 0;
+  color: #0f172a;
+  line-height: 1.7;
+}
+
+.admin-qa-card__answer span {
+  display: inline-block;
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.delete-btn {
+  border: none;
+  background: #fee2e2;
+  color: #991b1b;
+  cursor: pointer;
+}
+
+.delete-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .admin-blog-management {
+    padding: 96px 14px 36px;
+  }
+
+  .admin-blog-management__header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-qa-card {
+    padding: 18px;
+  }
+
+  .admin-qa-card__top {
+    flex-direction: column;
+  }
+
+  .admin-qa-card__actions {
+    flex-direction: column;
+  }
+
+  .admin-blog-management__btn,
+  .admin-qa-card__pin,
+  .delete-btn {
+    width: 100%;
+  }
+}

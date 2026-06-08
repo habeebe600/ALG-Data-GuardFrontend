@@ -72,7 +72,7 @@ export default function HomeBlogsSection() {
     <section className="home-blogs-section">
       <div className="home-blogs-container">
         <aside className="home-blogs-sidebar">
-          <h2 className="home-blogs-sidebar-title">Industries we solve for:</h2>
+          <h2 className="home-blogs-sidebar-title">Blogs:</h2>
 
           {loading ? (
             <div className="home-blogs-sidebar-loading">Loading categories...</div>
