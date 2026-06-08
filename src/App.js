@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Header/Navbar';
 import './App.css';
 
 // .ca REDIRECT
-import { useEffect } from 'react';
 import { handleGeoRedirect } from './utils/geoRedirect';
 
 // AUTH
@@ -14,7 +13,7 @@ import VerifyOtp from './pages/Auth/VerifyOtp';
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import ResetPassword from './pages/Auth/ResetPassword';
 import ChangePassword from './pages/Auth/ChangePassword';
-import Settings from "./pages/Setting/Settings";
+import Settings from './pages/Setting/Settings';
 
 // KB
 import KnowledgeBase from './pages/KnowledgeBase/KnowledgeBase';
@@ -63,21 +62,23 @@ import InfrastructureServices from './pages/Services/InfrastructureServices';
 import ITConsultingProfessionalServices from './pages/Services/ITConsultingProfessionalServices';
 import TalentServices from './pages/Services/TalentServices';
 
-
 // BLOGS
 import BlogsPage from './pages/Blogs/BlogsPage';
 import BlogDetailsPage from './pages/Blogs/BlogDetailsPage';
 import AdminCreateBlog from './pages/Blogs/AdminCreateBlog';
 import AdminBlogManagement from './pages/Blogs/AdminBlogManagement';
 import AdminEditBlog from './pages/Blogs/AdminEditBlog';
+import AdminQAManagement from './pages/Blogs/AdminQAManagement';
+import MemberQAManagement from './pages/Blogs/MemberQAManagement';
 import MemberBlogDashboard from './pages/Blogs/MemberBlogDashboard';
 import MemberCreateBlog from './pages/Blogs/MemberCreateBlog';
 import MemberEditBlog from './pages/Blogs/MemberEditBlog';
 
 function App() {
   useEffect(() => {
-  handleGeoRedirect();
-}, []);
+    handleGeoRedirect();
+  }, []);
+
   return (
     <Router>
       <div className="App">
@@ -115,30 +116,71 @@ function App() {
             <Route path="/services/Design-and-Deployment" element={<DesignAndDeployment />} />
             <Route path="/services/Business-Strategy" element={<BusinessStrategy />} />
             <Route path="/services/Network-Audit" element={<NetworkAudit />} />
-            <Route path="/services/Help-finding-Ideal-Colocation" element={<HelpFindingIdealColocation />} />
+            <Route
+              path="/services/Help-finding-Ideal-Colocation"
+              element={<HelpFindingIdealColocation />}
+            />
             <Route path="/services/Support-Training" element={<SupportTraining />} />
             <Route path="/services/Technical-Recruiters" element={<TechnicalRecruiters />} />
             <Route path="/services/Cloud-IT-Solutions" element={<CloudSolutionsPage />} />
-            <Route path="/services/Cybersecurity-Services" element={<CybersecurityServices />} />
-            <Route path="/services/IT-Managed-Support-Services" element={<ITManagedSupportServices />} />
-            <Route path="/services/Managed-Network-Solutions" element={<ManagedNetworkSolutions />} />
-            <Route path="/services/Strategic-IT-Consulting" element={<StrategicITConsulting />} />
-            <Route path="/services/AI-Automation-Services" element={<AIAutomationServices />} />
-            <Route path="/services/Data-Center-Colocation-Services" element={<DataCenterColocationServices />} />
-            <Route path="/services/Configuration-Services-Deployment" element={<ConfigurationServicesDeployment />} />
+            <Route
+              path="/services/Cybersecurity-Services"
+              element={<CybersecurityServices />}
+            />
+            <Route
+              path="/services/IT-Managed-Support-Services"
+              element={<ITManagedSupportServices />}
+            />
+            <Route
+              path="/services/Managed-Network-Solutions"
+              element={<ManagedNetworkSolutions />}
+            />
+            <Route
+              path="/services/Strategic-IT-Consulting"
+              element={<StrategicITConsulting />}
+            />
+            <Route
+              path="/services/AI-Automation-Services"
+              element={<AIAutomationServices />}
+            />
+            <Route
+              path="/services/Data-Center-Colocation-Services"
+              element={<DataCenterColocationServices />}
+            />
+            <Route
+              path="/services/Configuration-Services-Deployment"
+              element={<ConfigurationServicesDeployment />}
+            />
             <Route path="/services/Cloud-Consulting" element={<CloudConsulting />} />
-            <Route path="/services/Cybersecurity-Consulting" element={<CybersecurityConsulting />} />
-            <Route path="/services/Infrastructure-Consulting" element={<InfrastructureConsulting />} />
-            <Route path="/services/Digital-Transformation" element={<DigitalTransformation />} />
-            <Route path="/services/Implementation-Services" element={<ImplementationServices />} />
+            <Route
+              path="/services/Cybersecurity-Consulting"
+              element={<CybersecurityConsulting />}
+            />
+            <Route
+              path="/services/Infrastructure-Consulting"
+              element={<InfrastructureConsulting />}
+            />
+            <Route
+              path="/services/Digital-Transformation"
+              element={<DigitalTransformation />}
+            />
+            <Route
+              path="/services/Implementation-Services"
+              element={<ImplementationServices />}
+            />
             <Route path="/services/Managed-Services" element={<ManagedServices />} />
-            <Route path="/services/Infrastructure-Services" element={<InfrastructureServices />} />
-            <Route path="/services/IT-Consulting-Professional-Services" element={<ITConsultingProfessionalServices />} />
+            <Route
+              path="/services/Infrastructure-Services"
+              element={<InfrastructureServices />}
+            />
+            <Route
+              path="/services/IT-Consulting-Professional-Services"
+              element={<ITConsultingProfessionalServices />}
+            />
             <Route path="/services/Talent-Services" element={<TalentServices />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/About" element={<About />} />
             <Route path="/Partners" element={<Partners />} />
-
 
             {/* Admin Panel */}
             <Route
@@ -185,40 +227,65 @@ function App() {
                 </ProtectedRoute>
               }
             />
+
+            <Route
+              path="/admin/blogs/questions"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={['ADMIN']}>
+                    <AdminQAManagement />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+
             {/* MEMBER BLOGS */}
             <Route
               path="/member/blogs"
               element={
                 <ProtectedRoute>
-                  <RequireRole allow={["MEMBER"]}>
+                  <RequireRole allow={['MEMBER']}>
                     <MemberBlogDashboard />
                   </RequireRole>
                 </ProtectedRoute>
               }
             />
+
             <Route
               path="/member/blogs/create"
               element={
                 <ProtectedRoute>
-                  <RequireRole allow={["MEMBER"]}>
+                  <RequireRole allow={['MEMBER']}>
                     <MemberCreateBlog />
                   </RequireRole>
                 </ProtectedRoute>
               }
             />
+
             <Route
               path="/member/blogs/edit/:id"
               element={
                 <ProtectedRoute>
-                  <RequireRole allow={["MEMBER"]}>
+                  <RequireRole allow={['MEMBER']}>
                     <MemberEditBlog />
                   </RequireRole>
                 </ProtectedRoute>
               }
             />
-              {/* PUBLIC BLOGS */}
-              <Route path="/blogs" element={<BlogsPage />} />
-              <Route path="/blogs/:slug" element={<BlogDetailsPage />} />
+            <Route
+              path="/member/blogs/questions"
+              element={
+                <ProtectedRoute>
+                  <RequireRole allow={['MEMBER']}>
+                    <MemberQAManagement />
+                  </RequireRole>
+                </ProtectedRoute>
+              }
+            />
+
+            {/* PUBLIC BLOGS */}
+            <Route path="/blogs" element={<BlogsPage />} />
+            <Route path="/blogs/:slug" element={<BlogDetailsPage />} />
 
             {/* Knowledge Base */}
             <Route

@@ -1,0 +1,275 @@
+.blog-qa-section {
+  margin-top: 24px;
+  padding-top: 8px;
+}
+
+.blog-qa-header {
+  margin-bottom: 24px;
+}
+
+.blog-qa-kicker {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f766e;
+  background: #ecfeff;
+  padding: 7px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.blog-qa-header h2 {
+  font-size: 30px;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.blog-qa-header p {
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.blog-qa-form,
+.blog-qa-card,
+.blog-qa-empty {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.blog-qa-form {
+  margin-bottom: 24px;
+}
+
+.blog-qa-form h3,
+.blog-qa-list h3 {
+  margin-bottom: 18px;
+  color: #0f172a;
+}
+
+.blog-qa-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.blog-qa-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.blog-qa-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.blog-qa-field input,
+.blog-qa-field textarea,
+.blog-qa-edit-box input,
+.blog-qa-edit-box textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #0f172a;
+  background: #fff;
+}
+
+.blog-qa-btn {
+  border: none;
+  background: #0f172a;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.blog-qa-btn.secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.blog-qa-btn.small {
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+.blog-qa-success {
+  color: #166534;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.blog-qa-error {
+  color: #b91c1c;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.blog-qa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.blog-qa-question-row {
+  display: flex;
+  gap: 16px;
+}
+
+.blog-qa-badge,
+.blog-qa-answer-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.blog-qa-badge {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.blog-qa-answer-badge {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.blog-qa-content {
+  flex: 1;
+}
+
+.blog-qa-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.blog-qa-question-text {
+  color: #0f172a;
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.blog-qa-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.blog-qa-link-btn {
+  background: none;
+  border: none;
+  color: #0f766e;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.blog-qa-link-btn.danger {
+  color: #dc2626;
+}
+
+.blog-qa-answer-list {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.blog-qa-answer {
+  display: flex;
+  gap: 14px;
+}
+
+.qa-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.qa-pill.pinned {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.qa-pill.answered {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.blog-qa-edit-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .blog-qa-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-qa-question-row,
+  .blog-qa-answer {
+    flex-direction: column;
+  }
+}
+
+.blog-qa-inline-answer {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.blog-qa-inline-answer__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.blog-qa-inline-answer textarea {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+  min-height: 110px;
+  margin-bottom: 10px;
+}
+.blog-qa-answer-body {
+  flex: 1;
+}
+
+.blog-qa-answer .blog-qa-actions {
+  margin-top: 10px;
+}
