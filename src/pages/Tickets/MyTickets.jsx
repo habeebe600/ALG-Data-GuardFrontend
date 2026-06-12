@@ -4,6 +4,9 @@ import { listTickets } from '../../services/ticketService';
 import { useAuth } from '../../context/AuthContext';
 import './tickets.css';
 
+const getUserLabel = (person, fallback = '—') =>
+  person?.name || person?.email || fallback;
+
 export default function MyTickets() {
   const { user } = useAuth();
   const [tickets, setTickets] = useState([]);
@@ -23,7 +26,9 @@ export default function MyTickets() {
     }
   }, []);
 
-  useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    load();
+  }, [load]);
 
   const title = useMemo(() => {
     if (user?.role === 'CUSTOMER') return 'My Support Tickets';
@@ -64,8 +69,8 @@ export default function MyTickets() {
                       {t.subject}
                     </div>
                     <div className="t-ticketMeta">
-                      Created by: {t.createdBy?.email || '—'} <br />
-                      Assigned: {t.assignedTo?.email || 'Unassigned'}
+                      Created by: {getUserLabel(t.createdBy)} <br />
+                      Assigned: {getUserLabel(t.assignedTo, 'Unassigned')}
                     </div>
                   </div>
 

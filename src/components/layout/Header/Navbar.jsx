@@ -165,7 +165,7 @@ const Navbar = () => {
                     Knowledge Base
                   </Link>
 
-                  <Link to="/settings">Settings</Link>
+                  <Link to="/settings">Account settings</Link>
                   <Link to="/tickets">Support Tickets</Link>
 
                   <button onClick={handleLogout} className="logout-btn">
