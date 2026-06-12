@@ -16,7 +16,7 @@ export const verifyAccountOtp = async (payload) => {
 export const loginUser = async (credentials) => {
   // credentials: { email, password }
   const res = await api.post('/auth/login', credentials);
-  return res.data; // { token, user: { id, role } }
+  return res.data; // { token, user }
 };
 
 export const forgotPassword = async (payload) => {

@@ -5,9 +5,14 @@ export default function RequireRole({ allow = [], children }) {
   const { user, loading } = useAuth();
 
   if (loading) return null;
-  if (!user) return <Navigate to="/login" replace />;
 
-  if (!allow.includes(user.role)) return <Navigate to="/" replace />;
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (!allow.includes(user.role)) {
+    return <Navigate to="/" replace />;
+  }
 
   return children;
 }
