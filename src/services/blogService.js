@@ -13,7 +13,7 @@ export const getBlogs = async (params = {}) => {
   return res.data;
 };
 
-// GET MY BLOGS (member's own blogs) — filters by authorId on backend via query
+// GET MY BLOGS
 export const getMyBlogs = async (params = {}) => {
   const res = await api.get("/blogs/my", { params });
   return res.data;
@@ -37,7 +37,18 @@ export const deleteBlog = async (id) => {
   return res.data;
 };
 
+// GET BY SLUG
 export const getBlogBySlug = async (slug) => {
   const res = await api.get(`/blogs/${slug}`);
+  return res.data;
+};
+
+// UPLOAD COVER IMAGE — returns { success: true, url: "..." }
+export const uploadBlogImage = async (file) => {
+  const formData = new FormData();
+  formData.append("image", file);
+  const res = await api.post("/blogs/upload-image", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
   return res.data;
 };

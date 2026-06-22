@@ -1,352 +1,384 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getBlogById, updateBlog } from "../../services/blogService";
+import {
+  getBlogById,
+  updateBlog,
+  uploadBlogImage,
+} from "../../services/blogService";
 import "./styles/adminEditBlog.css";
 
 const initialForm = {
-    title: "",
-    excerpt: "",
-    content: "",
-    coverImage: "",
-    category: "",
-    tags: "",
-    authorName: "",
-    seoTitle: "",
-    seoDescription: "",
-    status: "DRAFT",
-    featured: false,
+  title: "",
+  excerpt: "",
+  content: "",
+  coverImage: "",
+  category: "",
+  tags: "",
+  authorName: "",
+  seoTitle: "",
+  seoDescription: "",
+  status: "DRAFT",
+  featured: false,
 };
 
 export default function AdminEditBlog() {
-    const { id } = useParams();
-    const navigate = useNavigate();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-    const [formData, setFormData] = useState(initialForm);
-    const [pageLoading, setPageLoading] = useState(true);
-    const [submitLoading, setSubmitLoading] = useState(false);
-    const [successMessage, setSuccessMessage] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
+  const [formData, setFormData] = useState(initialForm);
+  const [pageLoading, setPageLoading] = useState(true);
+  const [submitLoading, setSubmitLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [imageUploading, setImageUploading] = useState(false);
 
-    const previewTags = useMemo(() => {
-        return formData.tags
-            .split(",")
-            .map((tag) => tag.trim())
-            .filter(Boolean);
-    }, [formData.tags]);
+  const previewTags = useMemo(() => {
+    return formData.tags
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+  }, [formData.tags]);
 
-    useEffect(() => {
-        const fetchBlog = async () => {
-            try {
-                setPageLoading(true);
-                setErrorMessage("");
-
-                const res = await getBlogById(id);
-                const blog = res?.blog;
-
-                setFormData({
-                    title: blog?.title || "",
-                    excerpt: blog?.excerpt || "",
-                    content: blog?.content || "",
-                    coverImage: blog?.coverImage || "",
-                    category: blog?.category || "",
-                    tags: blog?.tags?.join(", ") || "",
-                    authorName: blog?.authorName || "",
-                    seoTitle: blog?.seoTitle || "",
-                    seoDescription: blog?.seoDescription || "",
-                    status: blog?.status || "DRAFT",
-                    featured: blog?.featured || false,
-                });
-            } catch (error) {
-                setErrorMessage(
-                    error.response?.data?.message || "Failed to load blog"
-                );
-            } finally {
-                setPageLoading(false);
-            }
-        };
-
-        fetchBlog();
-    }, [id]);
-
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-
-        setFormData((prev) => ({
-            ...prev,
-            [name]: type === "checkbox" ? checked : value,
-        }));
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setSubmitLoading(true);
-        setSuccessMessage("");
+  useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        setPageLoading(true);
         setErrorMessage("");
 
-        try {
-            const payload = {
-                ...formData,
-                tags: formData.tags
-                    .split(",")
-                    .map((tag) => tag.trim())
-                    .filter(Boolean),
-            };
+        const res = await getBlogById(id);
+        const blog = res?.blog;
 
-            const res = await updateBlog(id, payload);
-
-            setSuccessMessage(res.data?.message || "Blog updated successfully");
-        } catch (error) {
-            setErrorMessage(
-                error.response?.data?.message || "Failed to update blog"
-            );
-        } finally {
-            setSubmitLoading(false);
-        }
+        setFormData({
+          title: blog?.title || "",
+          excerpt: blog?.excerpt || "",
+          content: blog?.content || "",
+          coverImage: blog?.coverImage || "",
+          category: blog?.category || "",
+          tags: blog?.tags?.join(", ") || "",
+          authorName: blog?.authorName || "",
+          seoTitle: blog?.seoTitle || "",
+          seoDescription: blog?.seoDescription || "",
+          status: blog?.status || "DRAFT",
+          featured: blog?.featured || false,
+        });
+      } catch (error) {
+        setErrorMessage(error.response?.data?.message || "Failed to load blog");
+      } finally {
+        setPageLoading(false);
+      }
     };
 
-    if (pageLoading) {
-        return (
-            <section className="admin-edit-page">
-                <div className="admin-edit-shell">
-                    <div className="admin-edit-loading">Loading blog details...</div>
-                </div>
-            </section>
-        );
+    fetchBlog();
+  }, [id]);
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setImageUploading(true);
+    setErrorMessage("");
+
+    try {
+      const res = await uploadBlogImage(file);
+      setFormData((prev) => ({ ...prev, coverImage: res.url }));
+    } catch {
+      setErrorMessage("Image upload failed. Please try again.");
+    } finally {
+      setImageUploading(false);
     }
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+      const payload = {
+        ...formData,
+        tags: formData.tags
+          .split(",")
+          .map((tag) => tag.trim())
+          .filter(Boolean),
+      };
+
+      const res = await updateBlog(id, payload);
+      setSuccessMessage(res.message || "Blog updated successfully");
+    } catch (error) {
+      setErrorMessage(error.response?.data?.message || "Failed to update blog");
+    } finally {
+      setSubmitLoading(false);
+    }
+  };
+
+  const statusClass =
+    formData.status === "PUBLISHED"
+      ? "published"
+      : formData.status === "ARCHIVED"
+      ? "archived"
+      : "draft";
+
+  if (pageLoading) {
     return (
-        <section className="admin-edit-page">
-            <div className="admin-edit-shell">
-                <div className="admin-edit-top">
-                    <div>
-                        <p className="admin-edit-kicker">Admin Panel</p>
-                        <h1>Edit Blog Post</h1>
-                        <p className="admin-edit-subtext">
-                            Update content, metadata, publishing status, and homepage visibility.
-                        </p>
-                    </div>
-
-                    <div className="admin-edit-top-actions">
-                        <button
-                            type="button"
-                            className="secondary-nav-btn"
-                            onClick={() => navigate("/admin/blogs")}
-                        >
-                            Back to Blogs
-                        </button>
-                    </div>
-                </div>
-
-                {errorMessage ? (
-                    <div className="edit-alert error">{errorMessage}</div>
-                ) : null}
-
-                {successMessage ? (
-                    <div className="edit-alert success">{successMessage}</div>
-                ) : null}
-
-                <div className="admin-edit-layout">
-                    <form className="admin-edit-form" onSubmit={handleSubmit}>
-                        <div className="edit-section">
-                            <h2>Basic Details</h2>
-
-                            <div className="edit-grid two-col">
-                                <div className="edit-group">
-                                    <label htmlFor="title">Title</label>
-                                    <input
-                                        id="title"
-                                        name="title"
-                                        type="text"
-                                        value={formData.title}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-
-                                <div className="edit-group">
-                                    <label htmlFor="authorName">Author Name</label>
-                                    <input
-                                        id="authorName"
-                                        name="authorName"
-                                        type="text"
-                                        value={formData.authorName}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="edit-grid two-col">
-                                <div className="edit-group">
-                                    <label htmlFor="category">Category</label>
-                                    <input
-                                        id="category"
-                                        name="category"
-                                        type="text"
-                                        value={formData.category}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-
-                                <div className="edit-group">
-                                    <label htmlFor="coverImage">Cover Image URL</label>
-                                    <input
-                                        id="coverImage"
-                                        name="coverImage"
-                                        type="text"
-                                        value={formData.coverImage}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label>Type</label>
-                                    <select name="type" value={formData.type} onChange={handleChange}>
-                                        <option value="Article">Article</option>
-                                        <option value="Video">Video</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="edit-group">
-                                <label htmlFor="excerpt">Excerpt</label>
-                                <textarea
-                                    id="excerpt"
-                                    name="excerpt"
-                                    value={formData.excerpt}
-                                    onChange={handleChange}
-                                    rows="4"
-                                    required
-                                />
-                            </div>
-
-                            <div className="edit-group">
-                                <label htmlFor="content">Content</label>
-                                <textarea
-                                    id="content"
-                                    name="content"
-                                    value={formData.content}
-                                    onChange={handleChange}
-                                    rows="12"
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <div className="edit-section">
-                            <h2>Meta</h2>
-
-                            <div className="edit-group">
-                                <label htmlFor="tags">Tags</label>
-                                <input
-                                    id="tags"
-                                    name="tags"
-                                    type="text"
-                                    value={formData.tags}
-                                    onChange={handleChange}
-                                    placeholder="cloud, devops, hosting"
-                                />
-                            </div>
-
-                            <div className="edit-grid two-col">
-                                <div className="edit-group">
-                                    <label htmlFor="seoTitle">SEO Title</label>
-                                    <input
-                                        id="seoTitle"
-                                        name="seoTitle"
-                                        type="text"
-                                        value={formData.seoTitle}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-
-                                <div className="edit-group">
-                                    <label htmlFor="status">Status</label>
-                                    <select
-                                        id="status"
-                                        name="status"
-                                        value={formData.status}
-                                        onChange={handleChange}
-                                    >
-                                        <option value="DRAFT">Draft</option>
-                                        <option value="PUBLISHED">Published</option>
-                                        <option value="ARCHIVED">Archived</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="edit-group">
-                                <label htmlFor="seoDescription">SEO Description</label>
-                                <textarea
-                                    id="seoDescription"
-                                    name="seoDescription"
-                                    value={formData.seoDescription}
-                                    onChange={handleChange}
-                                    rows="4"
-                                />
-                            </div>
-
-                            <div className="edit-checkbox-row">
-                                <input
-                                    id="featured"
-                                    name="featured"
-                                    type="checkbox"
-                                    checked={formData.featured}
-                                    onChange={handleChange}
-                                />
-                                <label htmlFor="featured">Mark as featured</label>
-                            </div>
-                        </div>
-
-                        <button className="update-button" type="submit" disabled={submitLoading}>
-                            {submitLoading ? "Updating..." : "Update Blog"}
-                        </button>
-                    </form>
-
-                    <aside className="edit-preview-panel">
-                        <div className="edit-preview-card">
-                            {formData.coverImage ? (
-                                <img
-                                    src={formData.coverImage}
-                                    alt="Blog preview"
-                                    className="edit-preview-image"
-                                />
-                            ) : (
-                                <div className="edit-preview-image placeholder">Cover preview</div>
-                            )}
-
-                            <div className="edit-preview-body">
-                                <div className="edit-preview-top">
-                                    <span className="edit-preview-category">
-                                        {formData.category || "Category"}
-                                    </span>
-                                    <span className={`edit-preview-status ${formData.status.toLowerCase()}`}>
-                                        {formData.status}
-                                    </span>
-                                </div>
-
-                                <h3>{formData.title || "Blog title preview"}</h3>
-
-                                <p>
-                                    {formData.excerpt ||
-                                        "Your blog excerpt preview appears here."}
-                                </p>
-
-                                <div className="edit-preview-tags">
-                                    {previewTags.length ? (
-                                        previewTags.map((tag) => <span key={tag}>{tag}</span>)
-                                    ) : (
-                                        <span>No tags</span>
-                                    )}
-                                </div>
-
-                                <div className="edit-preview-footer">
-                                    <span>{formData.authorName || "Author name"}</span>
-                                    {formData.featured ? <strong>Featured</strong> : null}
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </section>
+      <div className="admin-edit-page">
+        <div className="admin-edit-shell">
+          <div className="admin-edit-loading">
+            <h2>Loading blog details...</h2>
+            <p>Update content, metadata, publishing status, and homepage visibility.</p>
+          </div>
+        </div>
+      </div>
     );
+  }
+
+  return (
+    <div className="admin-edit-page">
+      <div className="admin-edit-shell">
+        <div className="admin-edit-top">
+          <div>
+            <p className="admin-edit-kicker">Admin Panel</p>
+            <h1>Edit Blog Post</h1>
+            <p className="admin-edit-subtext">
+              Update content, metadata, publishing status, and homepage visibility.
+            </p>
+          </div>
+
+          <div className="admin-edit-top-actions">
+            <button
+              type="button"
+              className="secondary-nav-btn"
+              onClick={() => navigate("/admin/blogs")}
+            >
+              Back to Blogs
+            </button>
+          </div>
+        </div>
+
+        <div className="admin-edit-layout">
+          <form className="admin-edit-form" onSubmit={handleSubmit}>
+            {successMessage ? (
+              <div className="edit-alert success">{successMessage}</div>
+            ) : null}
+
+            {errorMessage ? (
+              <div className="edit-alert error">{errorMessage}</div>
+            ) : null}
+
+            <section className="edit-section">
+              <h2>Basic Details</h2>
+
+              <div className="edit-grid two-col">
+                <div className="edit-group">
+                  <label htmlFor="title">Title</label>
+                  <input
+                    id="title"
+                    name="title"
+                    value={formData.title}
+                    onChange={handleChange}
+                    placeholder="Enter blog title"
+                    required
+                  />
+                </div>
+
+                <div className="edit-group">
+                  <label htmlFor="authorName">Author Name</label>
+                  <input
+                    id="authorName"
+                    name="authorName"
+                    value={formData.authorName}
+                    onChange={handleChange}
+                    placeholder="Enter author name"
+                  />
+                </div>
+
+                <div className="edit-group">
+                  <label htmlFor="category">Category</label>
+                  <input
+                    id="category"
+                    name="category"
+                    value={formData.category}
+                    onChange={handleChange}
+                    placeholder="e.g. Security, Compliance"
+                  />
+                </div>
+
+                <div className="edit-group">
+                  <label htmlFor="status">Status</label>
+                  <select
+                    id="status"
+                    name="status"
+                    value={formData.status}
+                    onChange={handleChange}
+                  >
+                    <option value="DRAFT">Draft</option>
+                    <option value="PUBLISHED">Published</option>
+                    <option value="ARCHIVED">Archived</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="edit-group">
+                <label htmlFor="coverImageUpload">Cover Image</label>
+                <input
+                  id="coverImageUpload"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                />
+                {imageUploading ? <small>Uploading image...</small> : null}
+              </div>
+
+              <div className="edit-group">
+                <label htmlFor="coverImage">Cover Image URL</label>
+                <input
+                  id="coverImage"
+                  name="coverImage"
+                  value={formData.coverImage}
+                  onChange={handleChange}
+                  placeholder="Uploaded image URL will appear here"
+                />
+              </div>
+
+              <div className="edit-group">
+                <label htmlFor="excerpt">Excerpt</label>
+                <textarea
+                  id="excerpt"
+                  name="excerpt"
+                  rows="4"
+                  value={formData.excerpt}
+                  onChange={handleChange}
+                  placeholder="Write a short summary"
+                  required
+                />
+              </div>
+
+              <div className="edit-group">
+                <label htmlFor="content">Content</label>
+                <textarea
+                  id="content"
+                  name="content"
+                  rows="10"
+                  value={formData.content}
+                  onChange={handleChange}
+                  placeholder="Write the full blog content"
+                  required
+                />
+              </div>
+            </section>
+
+            <section className="edit-section">
+              <h2>Meta</h2>
+
+              <div className="edit-grid two-col">
+                <div className="edit-group">
+                  <label htmlFor="tags">Tags</label>
+                  <input
+                    id="tags"
+                    name="tags"
+                    value={formData.tags}
+                    onChange={handleChange}
+                    placeholder="Comma separated tags"
+                  />
+                </div>
+
+                <div className="edit-group">
+                  <label htmlFor="seoTitle">SEO Title</label>
+                  <input
+                    id="seoTitle"
+                    name="seoTitle"
+                    value={formData.seoTitle}
+                    onChange={handleChange}
+                    placeholder="SEO title"
+                  />
+                </div>
+              </div>
+
+              <div className="edit-group">
+                <label htmlFor="seoDescription">SEO Description</label>
+                <textarea
+                  id="seoDescription"
+                  name="seoDescription"
+                  rows="4"
+                  value={formData.seoDescription}
+                  onChange={handleChange}
+                  placeholder="SEO description"
+                />
+              </div>
+
+              <div className="edit-checkbox-row">
+                <input
+                  id="featured"
+                  name="featured"
+                  type="checkbox"
+                  checked={formData.featured}
+                  onChange={handleChange}
+                />
+                <label htmlFor="featured">Mark this post as featured</label>
+              </div>
+            </section>
+
+            <button
+              type="submit"
+              className="update-button"
+              disabled={submitLoading || imageUploading}
+            >
+              {submitLoading ? "Updating..." : "Update Blog"}
+            </button>
+          </form>
+
+          <aside className="edit-preview-panel">
+            <div className="edit-preview-card">
+              {formData.coverImage ? (
+                <img
+                  src={formData.coverImage}
+                  alt="Blog cover preview"
+                  className="edit-preview-image"
+                />
+              ) : (
+                <div className="edit-preview-image placeholder">No cover image selected</div>
+              )}
+
+              <div className="edit-preview-body">
+                <div className="edit-preview-top">
+                  <span className="edit-preview-category">
+                    {formData.category || "Uncategorized"}
+                  </span>
+                  <span className={`edit-preview-status ${statusClass}`}>
+                    {formData.status || "DRAFT"}
+                  </span>
+                </div>
+
+                <h3>{formData.title || "Your blog title will appear here"}</h3>
+                <p>{formData.excerpt || "Your excerpt preview will appear here."}</p>
+
+                {previewTags.length > 0 ? (
+                  <div className="edit-preview-tags">
+                    {previewTags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                ) : null}
+
+                <div className="edit-preview-footer">
+                  <span>
+                    By <strong>{formData.authorName || "Unknown Author"}</strong>
+                  </span>
+                  <span>{formData.featured ? "Featured" : "Standard Post"}</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  );
 }

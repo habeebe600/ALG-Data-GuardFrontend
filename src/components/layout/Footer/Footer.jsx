@@ -39,10 +39,11 @@ const Footer = () => {
               <img src={logoImage} alt="ALG Data Guard" className="footer__logo-img" />
               <span className="footer__logo-text">ALG Data Guard</span>
             </Link>
-            {/*<address className="footer__address">
-              <p>10225 Yonge St, Unit R226</p>
-              <p>Richmond Hill, ON L4C 3B2</p>
-            </address>*/}
+            <address className="footer__address">
+            <strong>CORPORATE HEADQUARTERS</strong><br />
+              <p>7111 Syntex Dr</p>
+              <p>Mississauga, ON L5N 8C3</p>
+            </address>
             <Link to="/contact" className="footer__contact-btn">
               CONTACT US
               <span className="footer__arrow">▶</span>
